@@ -1,0 +1,50 @@
+{
+  "name": "rete-angular-render-plugin",
+  "version": "0.1.0",
+  "main": "dist/bundles/render.umd.js",
+  "module": "dist/bundles/render.umd.js",
+  "scripts": {
+    "ng": "ng",
+    "build": "ng build render",
+    "build:dev": "ng build render --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/retejs/angular-render-plugin.git"
+  },
+  "keywords": [
+    "angular",
+    "rete.js"
+  ],
+  "author": "Vitaliy Stoliarov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/retejs/angular-render-plugin/issues"
+  },
+  "homepage": "https://github.com/retejs/angular-render-plugin#readme",
+  "dependencies": {
+    "@angular/common": "7.0.0",
+    "@angular/compiler": "7.0.0",
+    "@angular/core": "7.0.0",
+    "@angular/elements": "7.0.0",
+    "@angular/platform-browser": "7.0.0",
+    "@angular/platform-browser-dynamic": "7.0.0",
+    "rete": "^1.4.1",
+    "rxjs": "~6.4.0",
+    "tslib": "^1.9.0",
+    "zone.js": "~0.9.1"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "0.10.2",
+    "@angular-devkit/build-ng-packagr": "0.10.2",
+    "@angular/cli": "^7.0.2",
+    "@angular/compiler-cli": "^7.0.0",
+    "@angular/language-service": "~7.0.0",
+    "@types/node": "~8.9.4",
+    "ng-packagr": "^5.1.0",
+    "ts-node": "~7.0.0",
+    "tsickle": "^0.35.0",
+    "tslint": "~5.15.0",
+    "typescript": "3.1.1"
+  }
+}
