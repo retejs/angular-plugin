@@ -1,8 +1,9 @@
 {
   "name": "rete-angular-render-plugin",
-  "version": "0.1.0-draft",
+  "version": "0.1.0",
   "main": "dist/bundles/rete-angular-render-plugin.umd.js",
-  "module": "dist/bundles/rete-angular-render-plugin.umd.js",
+  "module": "dist/esm5/index.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "ng": "ng",
     "build": "ng-packagr",
@@ -23,9 +24,8 @@
     "url": "https://github.com/retejs/angular-render-plugin/issues"
   },
   "homepage": "https://github.com/retejs/angular-render-plugin#readme",
-  "peerDependencies": {
+  "dependencies": {
     "@angular/common": "7.0.0",
-    "@angular/compiler": "7.0.0",
     "@angular/core": "7.0.0",
     "@angular/elements": "7.0.0",
     "@angular/platform-browser": "7.0.0",
@@ -39,6 +39,7 @@
     "@angular-devkit/build-angular": "0.10.2",
     "@angular-devkit/build-ng-packagr": "0.10.2",
     "@angular/cli": "^7.0.2",
+    "@angular/compiler": "7.0.0",
     "@angular/compiler-cli": "^7.0.0",
     "@angular/language-service": "~7.0.0",
     "@types/node": "~8.9.4",
