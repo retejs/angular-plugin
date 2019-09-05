@@ -18,6 +18,12 @@ import { ReteModule } from 'rete-angular-render-plugin';
 export class AppModule {}
 ```
 
+Examples
+---
+
+- [Codesandbox](https://codesandbox.io/s/retejs-angular-render-v29f9)
+
+
 Control
 ---
 
