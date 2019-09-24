@@ -24,18 +24,23 @@
     "url": "https://github.com/retejs/angular-render-plugin/issues"
   },
   "homepage": "https://github.com/retejs/angular-render-plugin#readme",
-  "dependencies": {
-    "@angular/common": "7.0.0",
-    "@angular/core": "7.0.0",
-    "@angular/elements": "7.0.0",
-    "@angular/platform-browser": "7.0.0",
-    "@angular/platform-browser-dynamic": "7.0.0",
-    "rete": "^1.4.1",
-    "rxjs": "~6.4.0",
-    "tslib": "^1.9.0",
-    "zone.js": "~0.9.1"
+  "peerDependencies": {
+    "@angular/common": ">=7.0.0 <8.0.0",
+    "@angular/core": ">=7.0.0 <8.0.0",
+    "@angular/elements": ">=7.0.0 <8.0.0",
+    "rete": ">=1.3.1",
+    "rxjs": ">=6.4.0",
+    "tslib": ">=1.9.0",
+    "zone.js": ">=0.9.1"
   },
   "devDependencies": {
+    "@angular/common": ">=7.0.0 <8.0.0",
+    "@angular/core": ">=7.0.0 <8.0.0",
+    "@angular/elements": ">=7.0.0 <8.0.0",
+    "rete": ">=1.3.1",
+    "rxjs": ">=6.4.0",
+    "tslib": ">=1.9.0",
+    "zone.js": ">=0.9.1",
     "@angular-devkit/build-angular": "0.10.2",
     "@angular-devkit/build-ng-packagr": "0.10.2",
     "@angular/cli": "^7.0.2",
