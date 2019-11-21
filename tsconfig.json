@@ -13,7 +13,6 @@
     "importHelpers": true,
     "inlineSources": true,
     "target": "es2015",
-    "preserveSymlinks": true,
     "typeRoots": [
       "node_modules/@types"
     ],
