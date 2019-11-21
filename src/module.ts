@@ -1,13 +1,13 @@
-import { NgModule, Injector } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { createCustomElement } from '@angular/elements';
+import {Injector, NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {createCustomElement} from '@angular/elements';
 
-import { KebabPipe } from './kebab.pipe';
-import { NodeComponent } from './node/node.component';
-import { SocketComponent } from './socket/socket.component';
-import { ControlDirective } from './control.directive';
-import { SocketDirective } from './socket.directive';
-import { CustomComponent } from './custom.component';
+import {KebabPipe} from './kebab.pipe';
+import {NodeComponent} from './node/node.component';
+import {SocketComponent} from './socket/socket.component';
+import {ControlDirective} from './control.directive';
+import {SocketDirective} from './socket.directive';
+import {CustomComponent} from './custom.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +41,7 @@ import { CustomComponent } from './custom.component';
 })
 export class ReteModule {
   constructor(injector: Injector) { // StaticInjectorError due to 'npm link'
-    const CustomElement = createCustomElement(CustomComponent, { injector });
+    const CustomElement = createCustomElement(CustomComponent, {injector});
     customElements.define('rete-element', CustomElement);
   }
 }

@@ -1,13 +1,13 @@
-<div class="node" [ngClass]="[selected(), node.name] | kebab">
-    <div class="title">{{node.name}}</div>
-    <div class="output" *ngFor="let output of outputs">
-        <div class="output-title">{{output.name}}</div>
-        <rete-socket rete-socket [io]="output" [socket]="output.socket"></rete-socket>
-    </div>
-    <div class="control" *ngFor="let control of controls" [rete-control]="control"></div>
-    <div class="input" *ngFor="let input of inputs">
-        <rete-socket rete-socket [io]="input" [socket]="input.socket"></rete-socket>
-        <div class="input-title" *ngIf="!input.showControl()">{{input.name}}</div>
-        <div class="input-control" *ngIf="input.showControl()" [rete-control]="input.control"></div>
-    </div>
+<div [ngClass]="[selected(), node.name] | kebab" class="node">
+  <div class="title">{{node.name}}</div>
+  <div *ngFor="let output of outputs" class="output">
+    <div class="output-title">{{output.name}}</div>
+    <rete-socket [io]="output" [socket]="output.socket" rete-socket></rete-socket>
+  </div>
+  <div *ngFor="let control of controls" [rete-control]="control" class="control"></div>
+  <div *ngFor="let input of inputs" class="input">
+    <rete-socket [io]="input" [socket]="input.socket" rete-socket></rete-socket>
+    <div *ngIf="!input.showControl()" class="input-title">{{input.name}}</div>
+    <div *ngIf="input.showControl()" [rete-control]="input.control" class="input-control"></div>
+  </div>
 </div>

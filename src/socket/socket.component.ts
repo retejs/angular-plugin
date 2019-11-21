@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { Socket, IO, Input as ReteInput } from 'rete';
-import { SocketType } from '../types';
+import {Component, Input} from '@angular/core';
+import {Input as ReteInput, IO, Socket} from 'rete';
+import {SocketType} from '../types';
 
 @Component({
   selector: 'rete-socket',
