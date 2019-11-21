@@ -1,6 +1,6 @@
 {
   "name": "rete-angular-render-plugin",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "dist/bundles/rete-angular-render-plugin.umd.js",
   "module": "dist/esm5/index.js",
   "typings": "dist/index.d.ts",

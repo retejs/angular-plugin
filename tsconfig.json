@@ -2,10 +2,11 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
+    "outDir": "./out-tsc/lib",
     "sourceMap": true,
     "declaration": true,
-    "module": "es2015",
+    "downlevelIteration": true,
+    "module": "esnext",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -20,5 +21,13 @@
       "es2018",
       "dom"
     ]
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "annotateForClosureCompiler": true,
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": true,
+    "enableResourceInlining": true
   }
 }
