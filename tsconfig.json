@@ -5,7 +5,8 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": true,
-    "module": "es2015",
+    "downlevelIteration": true,
+    "module": "esnext",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -20,5 +21,13 @@
       "es2018",
       "dom"
     ]
+  },
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "annotateForClosureCompiler": true,
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": true,
+    "enableResourceInlining": true
   }
 }
