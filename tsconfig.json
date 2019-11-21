@@ -20,7 +20,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "rete-angular-render-plugin": [
+        "dist/rete-angular-render-plugin"
+      ],
+      "rete-angular-render-plugin/*": [
+        "dist/rete-angular-render-plugin/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
