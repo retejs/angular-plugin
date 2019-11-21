@@ -1,4 +1,4 @@
-name: build package
+name: Build library
 
 on: [push]
 
