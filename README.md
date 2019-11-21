@@ -1,4 +1,4 @@
-Angular Render (experimental)
+Angular Render (experimental) [![](https://github.com/atalantus/angular-render-plugin/workflows/Build%20library/badge.svg)](https://github.com/atalantus/angular-render-plugin/actions)
 ====
 #### Rete.js plugin
 
