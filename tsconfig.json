@@ -22,10 +22,10 @@
     ],
     "paths": {
       "rete-angular-render-plugin": [
-        "dist/rete-angular-render-plugin"
+        "dist"
       ],
       "rete-angular-render-plugin/*": [
-        "dist/rete-angular-render-plugin/*"
+        "dist/*"
       ]
     }
   },
