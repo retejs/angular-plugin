@@ -20,7 +20,7 @@ export class CustomComponent implements OnInit {
     const componentRef = factory.create(this.injector);
     const {props} = this;
 
-    for (let key in props) {
+    for (const key of Object.keys(props)) {
       Object.defineProperty(componentRef.instance, key, {
         get() {
           return props[key];
