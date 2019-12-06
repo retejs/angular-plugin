@@ -1,4 +1,4 @@
-<div [ngClass]="[selected(), node.name] | kebab" class="node">
+<div *ngIf="node" [ngClass]="[selected(), node.name] | kebab" class="node">
   <div class="title">{{node.name}}</div>
   <div *ngFor="let output of outputs" class="output">
     <div class="output-title">{{output.name}}</div>
