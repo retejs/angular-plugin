@@ -21,10 +21,6 @@ import {CustomComponent} from './custom.component';
   imports: [
     CommonModule
   ],
-  providers: [
-    KebabPipe,
-    ControlDirective
-  ],
   exports: [
     NodeComponent,
     CustomComponent,
