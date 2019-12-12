@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { NodeEditor, Node, Input as ReteInput, Output as ReteOutput, Control as ReteControl } from 'rete';
 import { NodeService } from '../node.service';
 
 @Component({
   templateUrl: './node.component.html',
   styleUrls: ['./node.component.sass'],
-  providers: [NodeService]
+  providers: [NodeService],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NodeComponent {
   @Input() editor!: NodeEditor;
