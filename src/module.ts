@@ -31,7 +31,6 @@ import {CustomComponent} from './custom.component';
   ],
   entryComponents: [
     NodeComponent,
-    SocketComponent,
     CustomComponent
   ]
 })

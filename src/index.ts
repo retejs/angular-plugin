@@ -49,6 +49,4 @@ export default {
 
 export {ReteModule} from './module';
 export * from './types';
-export {NodeService} from './node.service';
 export {NodeComponent} from './node/node.component';
-export {SocketComponent} from './socket/socket.component';
