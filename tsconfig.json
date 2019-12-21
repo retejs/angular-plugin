@@ -2,21 +2,23 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
+    "outDir": "./out-tsc/lib",
+    "declaration": true,
+    "inlineSources": true,
     "sourceMap": true,
-    "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "module": "esnext",
+    "target": "es2015",
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2015",
     "typeRoots": [
       "node_modules/@types"
     ],
+    "types": [],
     "lib": [
-      "es2018",
-      "dom"
+      "dom",
+      "es2018"
     ],
     "paths": {
       "angular-render-plugin": [
@@ -28,7 +30,11 @@
     }
   },
   "angularCompilerOptions": {
+    "annotateForClosureCompiler": true,
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": true,
     "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
+    "strictInjectionParameters": true,
+    "enableResourceInlining": true
   }
 }
