@@ -4,9 +4,7 @@ import {AngularComponentData, AngularControl, ElementProps} from './types';
 import {NodeComponent} from './components/node/node.component';
 import {Plugin} from 'rete/types/core/plugin';
 
-export let AngularRenderPlugin: Plugin;
-
-AngularRenderPlugin = {
+export const AngularRenderPlugin: Plugin = {
   name: 'angular-render',
   install: (editor: NodeEditor, params: { component?: Type<any> } = {}) => {
     editor.on('rendernode', ({el, node, component, bindControl, bindSocket}) => {
