@@ -4,14 +4,12 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
-    "declaration": true,
+    "declaration": false,
     "downlevelIteration": true,
+    "experimentalDecorators": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
     "importHelpers": true,
-    "inlineSources": true,
     "target": "es2015",
     "typeRoots": [
       "node_modules/@types"
@@ -21,20 +19,16 @@
       "dom"
     ],
     "paths": {
-      "rete-angular-render-plugin": [
+      "angular-render-plugin": [
         "dist"
       ],
-      "rete-angular-render-plugin/*": [
+      "angular-render-plugin/*": [
         "dist/*"
       ]
     }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true,
-    "annotateForClosureCompiler": true,
-    "skipTemplateCodegen": true,
-    "strictMetadataEmit": true,
-    "enableResourceInlining": true
+    "strictInjectionParameters": true
   }
 }

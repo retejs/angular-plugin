@@ -1,26 +1,14 @@
 {
   "extends": "tslint:recommended",
+  "rulesDirectory": [
+    "codelyzer"
+  ],
   "rules": {
     "array-type": false,
     "arrow-parens": false,
     "deprecation": {
-      "severity": "warn"
+      "severity": "warning"
     },
-    "component-class-suffix": true,
-    "contextual-lifecycle": true,
-    "directive-class-suffix": true,
-    "directive-selector": [
-      true,
-      "attribute",
-      "rete"
-      //"camelCase"
-    ],
-    "component-selector": [
-      true,
-      "element",
-      "rete",
-      "kebab-case"
-    ],
     "import-blacklist": [
       true,
       "rxjs/Rx"
@@ -72,6 +60,9 @@
       "single"
     ],
     "trailing-comma": false,
+    "component-class-suffix": true,
+    "contextual-lifecycle": true,
+    "directive-class-suffix": true,
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
     "no-input-rename": true,
@@ -84,8 +75,5 @@
     "template-no-negated-async": true,
     "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true
-  },
-  "rulesDirectory": [
-    "codelyzer"
-  ]
+  }
 }

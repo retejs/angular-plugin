@@ -1,48 +1,39 @@
 {
   "name": "rete-angular-render-plugin",
-  "version": "0.1.2",
-  "main": "dist/bundles/rete-angular-render-plugin.umd.js",
-  "module": "dist/esm5/index.js",
-  "typings": "dist/index.d.ts",
+  "version": "0.1.1",
   "scripts": {
     "ng": "ng",
-    "build": "ng-packagr",
-    "build:dev": "ng-packagr --watch",
-    "prepublishOnly": "npm run build"
+    "build": "ng build",
+    "lint": "ng lint"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/retejs/angular-render-plugin.git"
-  },
-  "keywords": [
-    "angular",
-    "rete.js"
-  ],
-  "author": "Vitaliy Stoliarov",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/retejs/angular-render-plugin/issues"
-  },
-  "homepage": "https://github.com/retejs/angular-render-plugin#readme",
-  "peerDependencies": {
-    "@angular/common": "7 - 8",
-    "@angular/core": "7 - 8",
-    "@angular/elements": "7 - 8",
-    "rete": "^1.4.2"
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~8.2.14",
+    "@angular/common": "~8.2.14",
+    "@angular/compiler": "~8.2.14",
+    "@angular/core": "~8.2.14",
+    "@angular/elements": "^8.2.14",
+    "@angular/forms": "~8.2.14",
+    "@angular/platform-browser": "~8.2.14",
+    "@angular/platform-browser-dynamic": "~8.2.14",
+    "@angular/router": "~8.2.14",
+    "rete": "^1.4.2",
+    "rxjs": "~6.4.0",
+    "tslib": "^1.10.0",
+    "zone.js": "~0.9.1",
+    "document-register-element": "^1.7.2"
   },
   "devDependencies": {
-    "@angular/common": "7 - 8",
-    "@angular/core": "7 - 8",
-    "@angular/elements": "7 - 8",
-    "rete": "^1.4.2",
-    "rxjs": "6.3.3 - 6.4",
-    "tslib": "^1.9.0",
-    "zone.js": "0.8.26 - 0.9",
+    "@angular-devkit/build-angular": "~0.803.21",
+    "@angular-devkit/build-ng-packagr": "~0.803.21",
     "@angular/cli": "~8.3.19",
-    "@angular/compiler": "~8.2.14",
     "@angular/compiler-cli": "~8.2.14",
+    "@angular/language-service": "~8.2.14",
+    "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
     "ng-packagr": "^5.4.0",
+    "ts-node": "~7.0.0",
+    "tsickle": "^0.37.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
   }

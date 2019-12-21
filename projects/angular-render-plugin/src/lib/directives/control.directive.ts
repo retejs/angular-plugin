@@ -1,6 +1,6 @@
 import {Directive, ElementRef, Input, OnInit} from '@angular/core';
 import {Control} from 'rete';
-import {NodeService} from './node.service';
+import {NodeService} from '../services/node.service';
 
 @Directive({
   selector: '[rete-control]'

@@ -1,17 +1,18 @@
-import {Component, Input} from '@angular/core';
-import {Node, NodeEditor} from 'rete';
-import {NodeService} from '../node.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {Control, IO, Node, NodeEditor} from 'rete';
+import {NodeService} from '../../services/node.service';
+import {SocketType} from '../../types';
 
 @Component({
   templateUrl: './node.component.html',
   styleUrls: ['./node.component.sass'],
   providers: [NodeService]
 })
-export class NodeComponent {
+export class NodeComponent implements OnInit {
   @Input() editor!: NodeEditor;
   @Input() node!: Node;
-  @Input() bindSocket!: Function;
-  @Input() bindControl!: Function;
+  @Input() bindSocket!: (el: HTMLElement, type: SocketType, io: IO) => void;
+  @Input() bindControl!: (el: HTMLElement, control: Control) => void;
 
   constructor(protected service: NodeService) {
   }

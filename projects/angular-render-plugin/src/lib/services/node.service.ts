@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BindControl, BindSocket} from './types';
+import {BindControl, BindSocket} from '../types';
 
 @Injectable()
 export class NodeService {

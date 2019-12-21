@@ -1,7 +1,7 @@
 import {Directive, ElementRef, Input, OnInit} from '@angular/core';
 import {Input as ReteInput, IO} from 'rete';
-import {NodeService} from './node.service';
-import {SocketType} from './types';
+import {NodeService} from '../services/node.service';
+import {SocketType} from '../types';
 
 @Directive({
   selector: '[rete-socket]'

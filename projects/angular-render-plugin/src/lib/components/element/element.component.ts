@@ -1,10 +1,10 @@
-import {Component, ComponentFactoryResolver, Injector, Input, OnInit, Type, ViewContainerRef} from '@angular/core';
-import {Props} from './types';
+import {Component, ComponentFactoryResolver, Injector, Input, OnDestroy, OnInit, Type, ViewContainerRef} from '@angular/core';
+import {Props} from '../../types';
 
 @Component({
   template: ''
 })
-export class CustomComponent implements OnInit {
+export class ElementComponent implements OnInit, OnDestroy {
   @Input() component!: Type<Component>;
   @Input() props!: Props;
 
@@ -16,6 +16,10 @@ export class CustomComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.component === undefined) {
+      return;
+    }
+
     const factory = this.factoryResolver.resolveComponentFactory(this.component);
     const componentRef = factory.create(this.injector);
     const {props} = this;
