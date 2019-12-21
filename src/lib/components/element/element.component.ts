@@ -16,10 +16,6 @@ export class ElementComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    if (this.component === undefined) {
-      return;
-    }
-
     const factory = this.factoryResolver.resolveComponentFactory(this.component);
     const componentRef = factory.create(this.injector);
     const {props} = this;

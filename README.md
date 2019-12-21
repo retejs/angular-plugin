@@ -69,7 +69,7 @@ Add component to `entryComponents` of your module
 export class AppModule {}
 ```
 
-Custom coponent for all nodes
+Custom component for all nodes
 ```ts
 editor.use(AngularRenderPlugin, { component: MyNodeComponent });
 ```

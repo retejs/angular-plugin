@@ -7,13 +7,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "lib"
+      "rete"
       //"camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "lib",
+      "rete",
       "kebab-case"
     ],
     "array-type": false,
