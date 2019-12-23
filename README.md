@@ -3,7 +3,7 @@ Angular Render (experimental)
 #### Rete.js plugin
 
 ```ts
-import AngularRenderPlugin from 'rete-angular-render-plugin';
+import { AngularRenderPlugin } from 'rete-angular-render-plugin';
 
 editor.use(AngularRenderPlugin);
 ```
@@ -69,7 +69,7 @@ Add component to `entryComponents` of your module
 export class AppModule {}
 ```
 
-Custom coponent for all nodes
+Custom component for all nodes
 ```ts
 editor.use(AngularRenderPlugin, { component: MyNodeComponent });
 ```
