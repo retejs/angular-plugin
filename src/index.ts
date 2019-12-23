@@ -38,11 +38,10 @@ function install(editor: NodeEditor, params : { component?: Type<any> } = {}) {
     });
 }
 
-export default {
+export const AngularRenderPlugin = {
     name: 'angular-render',
     install
-}
-
+};
 export { ReteModule } from './module';
 export * from './types';
 export { NodeService } from './node.service';
