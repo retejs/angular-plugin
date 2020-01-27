@@ -36,6 +36,13 @@ function install(editor: NodeEditor, params : { component?: Type<any> } = {}) {
 
         el.appendChild(element);
     });
+    editor.on(['connectioncreated', 'connectionremoved'], connection => {
+        connection.output.node.update();
+        connection.input.node.update();
+    });
+    editor.on('nodeselected', () => {
+        editor.nodes.forEach(n => n.update());
+    });
 }
 
 export const AngularRenderPlugin = {

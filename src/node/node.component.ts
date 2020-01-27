@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { NodeEditor, Node, Input as ReteInput, Output as ReteOutput, Control as ReteControl } from 'rete';
 import { NodeService } from '../node.service';
 
@@ -14,10 +14,11 @@ export class NodeComponent {
   @Input() bindSocket!: Function;
   @Input() bindControl!: Function;
 
-  constructor(protected service: NodeService) {}
+  constructor(protected service: NodeService, protected cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.service.setBindings(this.bindSocket, this.bindControl);
+    this.node.update = () => this.cdr.detectChanges();
   }
 
   get inputs() {
