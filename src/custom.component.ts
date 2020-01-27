@@ -1,8 +1,9 @@
-import { Component, Input, OnInit, Injector, ComponentFactoryResolver, ViewContainerRef, Type } from '@angular/core';
+import { Component, Input, OnInit, Injector, ComponentFactoryResolver, ViewContainerRef, Type, ChangeDetectionStrategy } from '@angular/core';
 import { Props } from './types';
 
 @Component({
-    template: ''
+    template: '',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CustomComponent implements OnInit {
   @Input() component!: Type<Component>;
