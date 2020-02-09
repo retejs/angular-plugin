@@ -1,6 +1,6 @@
 {
   "name": "rete-angular-render-plugin",
-  "version": "0.2.0-rc.2",
+  "version": "0.2.1",
   "scripts": {
     "ng": "ng",
     "build": "ng-packagr",
