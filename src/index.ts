@@ -13,7 +13,7 @@ function install(editor: NodeEditor, params : { component?: Type<any> } = {}) {
         const props: ElementProps = element as any;
 
         props.component = ngComponent.component || params.component || NodeComponent;
-        props.props = Object.assign(ngComponent.props || {}, {
+        props.props = Object.assign({}, ngComponent.props || {}, {
             node,
             editor,
             bindControl,
