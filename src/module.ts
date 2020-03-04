@@ -42,6 +42,6 @@ import { CustomComponent } from './custom.component';
 export class ReteModule {
   constructor(injector: Injector) { // StaticInjectorError due to 'npm link'
     const CustomElement = createCustomElement(CustomComponent, { injector });
-    customElements.define('rete-element', CustomElement);
+    if (!customElements.get('rete-element')) customElements.define('rete-element', CustomElement);
   }
 }
