@@ -1,6 +1,6 @@
 {
   "name": "rete-angular-render-plugin",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "scripts": {
     "ng": "ng",
     "build": "ng-packagr",
@@ -45,6 +45,7 @@
     "@angular/compiler-cli": "^7.0.0",
     "@angular/language-service": "~7.0.0",
     "@types/node": "~8.9.4",
+    "node-sass": "4.13.1",
     "ng-packagr": "^5.1.0",
     "ts-node": "~7.0.0",
     "tsickle": "^0.35.0",
