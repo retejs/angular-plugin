@@ -4,7 +4,7 @@ import { SocketType } from '../types';
 
 @Component({
   selector: 'rete-socket',
-  template: `<div *ngIf="socket" class="socket" [ngClass]="[type, socket.name]" [title]="socket.name"></div>`,
+  template: `<div *ngIf="socket" class="socket" [ngClass]="[type, socket.name | kebab]" [title]="socket.name"></div>`,
   styleUrls: ['./socket.component.sass'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
