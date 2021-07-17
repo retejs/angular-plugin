@@ -47,6 +47,7 @@ Custom node
 
 Extend node component
 ```ts
+import { Component, ChangeDetectorRef } from "@angular/core";
 import { NodeComponent, NodeService } from 'rete-angular-render-plugin';
 
 @Component({
@@ -55,8 +56,8 @@ import { NodeComponent, NodeService } from 'rete-angular-render-plugin';
   providers: [NodeService]
 })
 export class MyNodeComponent extends NodeComponent {
-  constructor(protected service: NodeService) {
-    super(service);
+  constructor(protected service: NodeService, protected cdr: ChangeDetectorRef) {
+    super(service, cdr);
   }
 }
 ```
