@@ -1,15 +1,15 @@
-import { Pipe, PipeTransform } from '@angular/core';
+// import { Pipe, PipeTransform } from '@angular/core';
 
-type ClassAttr = string | string[];
+// type ClassAttr = string | string[];
 
-@Pipe({name: 'kebab'})
-export class KebabPipe implements PipeTransform {
+// @Pipe({name: 'kebab'})
+// export class KebabPipe implements PipeTransform {
 
-  replace(s: string) {
-    return s.toLowerCase().replace(/ /g, '-');
-  }
+//   replace(s: string) {
+//     return s.toLowerCase().replace(/ /g, '-');
+//   }
 
-  transform(value: ClassAttr): ClassAttr {
-    return Array.isArray(value) ? value.map(s => this.replace(s)) : this.replace(value);
-  }
-}
+//   transform(value: ClassAttr): ClassAttr {
+//     return Array.isArray(value) ? value.map(s => this.replace(s)) : this.replace(value);
+//   }
+// }

@@ -1,10 +1,10 @@
 {
   "name": "rete-angular-render-plugin",
-  "version": "0.2.2",
+  "version": "2.0.0-beta.1",
   "scripts": {
     "ng": "ng",
-    "build": "ng-packagr",
-    "build:dev": "ng-packagr --watch",
+    "build": "ng-packagr -p ng-package.js",
+    "build:dev": "ng-packagr -p ng-package.js --watch",
     "prepublishOnly": "npm run build"
   },
   "repository": {
@@ -22,34 +22,32 @@
   },
   "homepage": "https://github.com/retejs/angular-render-plugin#readme",
   "peerDependencies": {
-    "@angular/common": ">=7.0.0 <8.0.0",
-    "@angular/core": ">=7.0.0 <8.0.0",
-    "@angular/elements": ">=7.0.0 <8.0.0",
-    "rete": ">=1.3.1",
-    "rxjs": ">=6.4.0",
-    "tslib": ">=1.9.0",
-    "zone.js": ">=0.9.1"
+    "@angular/common": ">=12.2.0",
+    "@angular/core": ">=12.2.0",
+    "@angular/elements": ">=12.2.0",
+    "rxjs": ">=6.6.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4",
+    "rete": "file:../rete/rete-2.0.0-beta.1.tgz",
+    "rete-area-plugin": "file:../area-plugin/rete-area-plugin-0.2.1.tgz"
+  },
+  "dependencies": {
+    "rete-render-utils": "file:../render-utils/rete-render-utils-0.1.0.tgz"
   },
   "devDependencies": {
-    "@angular/common": ">=7.0.0 <8.0.0",
-    "@angular/core": ">=7.0.0 <8.0.0",
-    "@angular/elements": ">=7.0.0 <8.0.0",
-    "rete": ">=1.3.1",
-    "rxjs": ">=6.4.0",
-    "tslib": ">=1.9.0",
-    "zone.js": ">=0.9.1",
-    "@angular-devkit/build-angular": "0.10.2",
-    "@angular-devkit/build-ng-packagr": "0.10.2",
-    "@angular/cli": "^7.0.2",
-    "@angular/compiler": "7.0.0",
-    "@angular/compiler-cli": "^7.0.0",
-    "@angular/language-service": "~7.0.0",
-    "@types/node": "~8.9.4",
-    "node-sass": "4.13.1",
-    "ng-packagr": "^5.1.0",
-    "ts-node": "~7.0.0",
-    "tsickle": "^0.35.0",
-    "tslint": "~5.15.0",
-    "typescript": "3.1.1"
+    "@angular-devkit/build-angular": "~12.2.18",
+    "@angular/cli": "~12.2.0",
+    "@angular/compiler-cli": "~12.2.0",
+    "@angular/common": "~12.2.0",
+    "@angular/core": "~12.2.0",
+    "@angular/elements": "~12.2.0",
+    "rete": "file:../rete/rete-2.0.0-beta.1.tgz",
+    "rete-area-plugin": "file:../area-plugin/rete-area-plugin-0.2.1.tgz",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4",
+    "@types/node": "^12.11.1",
+    "ng-packagr": "^12.1.1",
+    "typescript": "~4.3.5"
   }
 }

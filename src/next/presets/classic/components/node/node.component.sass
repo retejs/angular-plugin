@@ -1,6 +1,8 @@
-@import "../vars"
+@use "sass:math"
+@import "../../vars"
 
-.node
+:host
+  display: block
   background: $node-color
   border: 2px solid #4e58bf
   border-radius: 10px
@@ -35,10 +37,18 @@
     line-height: $socket-size
     &[hidden]
       display: none
+  .output-socket
+    text-align: right
+    margin-right: -(math.div($socket-size, 2) + $socket-margin)
+    display: inline-block
+  .input-socket
+    text-align: left
+    margin-left: -(math.div($socket-size, 2) + $socket-margin)
+    display: inline-block
   .input-control
     z-index: 1
     width: calc(100% - #{$socket-size + 2*$socket-margin})
     vertical-align: middle
     display: inline-block
   .control
-    padding: $socket-margin $socket-size/2 + $socket-margin
+    padding: $socket-margin math.div($socket-size, 2) + $socket-margin

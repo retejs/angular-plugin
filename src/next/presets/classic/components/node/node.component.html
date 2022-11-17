@@ -1,0 +1,33 @@
+<div class="title">{{data.label}}</div>
+<div class="output" *ngFor="let output of data.outputs | keyvalue">
+    <div class="output-title">{{output.value?.label}}</div>
+    <div
+        class="output-socket"
+        refComponent
+        [data]="{type: 'socket', side: 'output', key: output.key, nodeId: data.id, payload: output.value?.socket, seed: seed }"
+        [emit]="emit"
+    ></div>
+</div>
+<div
+    class="control"
+    *ngFor="let control of data.controls | keyvalue"
+    refComponent
+    [data]="{type: 'control', payload: control.value }"
+    [emit]="emit"
+></div>
+<div class="input" *ngFor="let input of data.inputs | keyvalue">
+    <div
+        class="input-socket"
+        refComponent
+        [data]="{type: 'socket', side: 'input', key: input.key, nodeId: data.id, payload: input.value?.socket, seed: seed }"
+        [emit]="emit"
+    ></div>
+    <div class="input-title" *ngIf="!input.value?.showControl">{{input.value?.label}}</div>
+    <div
+        class="input-control"
+        [style.display]="input.value?.showControl ? '' : 'none'"
+        refComponent
+        [data]="{type: 'control', payload: input.value?.control }"
+        [emit]="emit"
+    ></div>
+</div>
