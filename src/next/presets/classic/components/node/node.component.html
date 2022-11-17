@@ -1,5 +1,5 @@
 <div class="title">{{data.label}}</div>
-<div class="output" *ngFor="let output of data.outputs | keyvalue">
+<div class="output" *ngFor="let output of data.outputs | keyvalue: sortByIndex">
     <div class="output-title">{{output.value?.label}}</div>
     <div
         class="output-socket"
@@ -10,12 +10,12 @@
 </div>
 <div
     class="control"
-    *ngFor="let control of data.controls | keyvalue"
+    *ngFor="let control of data.controls | keyvalue: sortByIndex"
     refComponent
     [data]="{type: 'control', payload: control.value }"
     [emit]="emit"
 ></div>
-<div class="input" *ngFor="let input of data.inputs | keyvalue">
+<div class="input" *ngFor="let input of data.inputs | keyvalue: sortByIndex">
     <div
         class="input-socket"
         refComponent
