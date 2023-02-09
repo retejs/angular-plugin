@@ -1,12 +1,12 @@
 import { ClassicPreset, getUID } from 'rete';
 import { AreaPlugin } from 'rete-area-plugin';
-import { SocketPositionWatcher, useDOMSocketPosition } from 'rete-render-utils';
+import { classicConnectionPath, loopConnectionPath, SocketPositionWatcher, useDOMSocketPosition } from 'rete-render-utils';
 import { AngularArea2D, ClassicScheme, ExtractPayload } from './types';
 import { NodeComponent } from './components/node/node.component';
 import { SocketComponent } from './components/socket/socket.component';
 import { ControlComponent } from './components/control/control.component';
 import { ConnectionWrapperComponent } from './components/connection/connection-wrapper.component';
-import { RenderPreset } from '../../types';
+import { Position, RenderPreset } from '../../types';
 
 
 type AngularComponent = any
@@ -48,7 +48,7 @@ export function setup<Schemes extends ClassicScheme>(props: ClasssicProps<Scheme
     },
     mount(context, plugin) {
       const parent = plugin.parentScope()
-      const emit = parent?.emit.bind(parent)
+      const emit = parent.emit.bind(parent)
       const rendered = () => {
         emit({ type: 'rendered', data: context.data })
       }
@@ -67,17 +67,29 @@ export function setup<Schemes extends ClassicScheme>(props: ClasssicProps<Scheme
         }
       }
       if (context.data.type === 'connection') {
-        const id = context.data.payload.id || getUID() // TODO pseudoconnection id
+        const id = context.data.payload.id
         const { sourceOutput, targetInput, source, target } = context.data.payload
-        const { start, end } = context.data
+        const { start, end, payload } = context.data
 
         return {
           key: `connection-${id}`,
           component: ConnectionWrapperComponent,
           props: {
-            data: context.data.payload,
+            data: payload,
             start: start || ((change: any) => positionWatcher(source, 'output', sourceOutput, change)),
             end: end || ((change: any) => positionWatcher(target, 'input', targetInput, change)),
+            path: async (start, end) => {
+              const response = await plugin.emit({ type: 'connectionpath', data: { payload, points: [start, end] } })
+              const { path, points } = response.data
+              const curvature = 0.3
+
+              if (!path && points.length !== 2) throw new Error('cannot render connection with a custom number of points')
+              if (!path) return payload.isLoop
+                  ? loopConnectionPath(points as [Position, Position], curvature, 120)
+                  : classicConnectionPath(points as [Position, Position], curvature)
+
+              return path
+            },
             rendered
           }
         }

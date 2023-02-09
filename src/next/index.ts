@@ -3,7 +3,7 @@ import { BaseSchemes, Scope } from 'rete'
 import { Area2DInherited, RenderData } from 'rete-area-plugin'
 import { createCustomElement } from '@angular/elements';
 
-import { ExtraRender, NgElement, NodeProps, RenderPreset } from './types'
+import { ExtraRender, NgElement, NodeProps, Position, RenderPreset } from './types'
 
 export * as Presets from './presets'
 
@@ -55,8 +55,10 @@ function getRenderer(): Renderer {
     }
   }
 }
+type Produces<Schemes extends BaseSchemes> =
+    | { type: 'connectionpath', data: { payload: Schemes['Connection'], path?: string, points: Position[] } }
 
-export class AngularRenderPlugin<Schemes extends BaseSchemes, T extends ExtraRender = never> extends Scope<never, Area2DInherited<Schemes, T>> {
+export class AngularRenderPlugin<Schemes extends BaseSchemes, T extends ExtraRender = never> extends Scope<Produces<Schemes>, Area2DInherited<Schemes, T>> {
   presets: RenderPreset<Schemes, T>[] = []
   renderer: Renderer
   owners = new WeakMap<HTMLElement, RenderPreset<Schemes, T>>()

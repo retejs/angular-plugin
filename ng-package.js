@@ -5,8 +5,5 @@ module.exports = {
   "dest": process.env.DEST || "./dist",
   "lib": {
     "entryFile": "src/index.ts"
-  },
-  "allowedNonPeerDependencies": [
-    "rete-render-utils"
-  ]
+  }
 }

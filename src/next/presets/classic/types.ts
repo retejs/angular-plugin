@@ -38,4 +38,4 @@ export type AngularArea2D<T extends ClassicScheme> =
   | { type: 'render', data: RenderPayload<T> }
   | { type: 'rendered', data: RenderPayload<T> }
 
-export type ClassicScheme = GetSchemes<Classic.Node, Classic.Connection<Classic.Node, Classic.Node>>
+export type ClassicScheme = GetSchemes<Classic.Node, Classic.Connection<Classic.Node, Classic.Node> & { isLoop?: boolean }>

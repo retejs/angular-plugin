@@ -29,25 +29,26 @@
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4",
     "rete": "file:../rete/rete-2.0.0-beta.1.tgz",
-    "rete-area-plugin": "file:../area-plugin/rete-area-plugin-0.2.1.tgz"
-  },
-  "dependencies": {
+    "rete-area-plugin": "file:../area-plugin/rete-area-plugin-0.2.1.tgz",
     "rete-render-utils": "file:../render-utils/rete-render-utils-0.1.0.tgz"
   },
+  "dependencies": {},
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.18",
     "@angular/cli": "~12.2.0",
-    "@angular/compiler-cli": "~12.2.0",
     "@angular/common": "~12.2.0",
+    "@angular/compiler": "^12.2.17",
+    "@angular/compiler-cli": "~12.2.0",
     "@angular/core": "~12.2.0",
     "@angular/elements": "~12.2.0",
-    "rete": "file:../rete/rete-2.0.0-beta.1.tgz",
-    "rete-area-plugin": "file:../area-plugin/rete-area-plugin-0.2.1.tgz",
-    "rxjs": "~6.6.0",
-    "tslib": "^2.3.0",
-    "zone.js": "~0.11.4",
     "@types/node": "^12.11.1",
     "ng-packagr": "^12.1.1",
-    "typescript": "~4.3.5"
+    "rete": "file:../rete/rete-2.0.0-beta.1.tgz",
+    "rete-area-plugin": "file:../area-plugin/rete-area-plugin-0.2.1.tgz",
+    "rete-render-utils": "file:../render-utils/rete-render-utils-0.1.0.tgz",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.3.0",
+    "typescript": "~4.3.5",
+    "zone.js": "~0.11.4"
   }
 }
