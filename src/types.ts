@@ -1,31 +1,15 @@
-// import { Component, Type } from '@angular/core';
-// import { IO, Control } from 'rete';
+import { BaseSchemes } from 'rete'
+import { NgElement as NgEl, NgElementStrategy } from '@angular/elements';
+import { AngularRenderPlugin } from '.'
 
-// export type SocketType = 'input' | 'output';
-// export type BindSocket = (el: HTMLElement, type: SocketType, io: IO) => void;
-// export type BindControl = (el: HTMLElement, control: Control) => void;
+export type ExtraRender = { type: 'render', data: any } | { type: 'rendered', data: any }
 
-// export interface Props {
-//     [key: string]: unknown;
-// }
+export type RenderPreset<Schemes extends BaseSchemes, T extends ExtraRender> = {
+  update: (context: T, plugin: AngularRenderPlugin<Schemes, T>) => Record<string, unknown> | null
+  mount: (context: T, plugin: AngularRenderPlugin<Schemes, T>) => { key: string, component: any, props: Record<string, unknown> } | undefined | null | void
+}
 
-// export interface ElementProps extends Props {
-//     component: Type<Component>;
-//     props: Props;
-// }
+export type NgElement = NgEl & { ngElementStrategy: NgElementStrategy & { setInputValue(key: string, value: any): void } }
+export type NodeProps = { data: any, rendered: any, emit: any } & NgElement
 
-// export interface AngularControl<P extends Props = {}, T extends Component = any> {
-//     render?: 'angular' | string;
-//     component: Type<T>;
-//     props: P;
-// }
-
-// export interface AngularComponentData<P extends Props = {}, T extends Component = any> {
-//     render?: 'angular' | string;
-//     component: Type<T>;
-//     props?: P;
-// }
-
-// export interface AngularComponent<P extends Props = {}, T extends Component = any> {
-//     data : AngularComponentData<P, T>;
-// }
+export type Position = { x: number, y: number }

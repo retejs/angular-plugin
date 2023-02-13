@@ -1,47 +1,39 @@
-// import { NgModule, Injector } from '@angular/core';
-// import { CommonModule } from '@angular/common';
-// import { createCustomElement } from '@angular/elements';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-// import { KebabPipe } from './kebab.pipe';
-// import { NodeComponent } from './node/node.component';
-// import { SocketComponent } from './socket/socket.component';
-// import { ControlDirective } from './control.directive';
-// import { SocketDirective } from './socket.directive';
-// import { CustomComponent } from './custom.component';
+import { NodeComponent, RefDirective } from './presets/classic/components/node/node.component';
+import { ConnectionComponent } from './presets/classic/components/connection/connection.component';
+import { SocketComponent } from './presets/classic/components/socket/socket.component';
+import { ConnectionWrapperComponent } from './presets/classic/components/connection/connection-wrapper.component';
+import { ControlComponent } from './presets/classic/components/control/control.component';
 
-// @NgModule({
-//   declarations: [
-//     NodeComponent,
-//     SocketComponent,
-//     CustomComponent,
-//     ControlDirective,
-//     SocketDirective,
-//     KebabPipe,
-//   ],
-//   imports: [
-//     CommonModule
-//   ],
-//   providers: [
-//     KebabPipe,
-//     ControlDirective
-//   ],
-//   exports: [
-//     NodeComponent,
-//     CustomComponent,
-//     SocketComponent,
-//     ControlDirective,
-//     SocketDirective,
-//     KebabPipe
-//   ],
-//   entryComponents: [
-//     NodeComponent,
-//     SocketComponent,
-//     CustomComponent
-//   ]
-// })
-// export class ReteModule {
-//   constructor(injector: Injector) { // StaticInjectorError due to 'npm link'
-//     const CustomElement = createCustomElement(CustomComponent, { injector });
-//     if (!customElements.get('rete-element')) customElements.define('rete-element', CustomElement);
-//   }
-// }
+export const key = 'rete-angular-render-element'
+
+@NgModule({
+  declarations: [
+    RefDirective,
+    NodeComponent,
+    ConnectionComponent,
+    ConnectionWrapperComponent,
+    SocketComponent,
+    ControlComponent
+  ],
+  imports: [
+    CommonModule
+  ],
+  exports: [
+    NodeComponent,
+    ConnectionComponent,
+    ConnectionWrapperComponent,
+    SocketComponent,
+    ControlComponent
+  ],
+  entryComponents: [
+    NodeComponent,
+    ConnectionComponent,
+    ConnectionWrapperComponent,
+    SocketComponent,
+    ControlComponent
+  ]
+})
+export class ReteModule {}
