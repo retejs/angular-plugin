@@ -108,11 +108,12 @@ export function setup<Schemes extends ClassicScheme>(props: ClasssicProps<Scheme
       }
       if (context.data.type === 'control') {
         const component = control
-          ? control(context.data) || (
+          ? control(context.data)
+          : (
             context.data.payload instanceof ClassicPreset.InputControl
             ? ControlComponent
             : null
-          ) : null
+          )
 
         if (component) {
           return {
