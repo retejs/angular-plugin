@@ -23,9 +23,8 @@ export class ControlComponent<T extends 'text' | 'number'> implements OnChanges 
   ngOnChanges(changes: SimpleChanges): void {
     const data = changes['data']
     const currentValue: ClassicPreset.InputControl<T> = data.currentValue
-    const previousValue: ClassicPreset.InputControl<T> = data.previousValue
 
-    if (!previousValue || currentValue.value !== previousValue.value) {
+    if (currentValue.value !== this.value) {
       this.value = currentValue.value
     }
     this.cdr.detectChanges()
@@ -37,7 +36,6 @@ export class ControlComponent<T extends 'text' | 'number'> implements OnChanges 
     const value = (this.data.type === 'number'
         ? +target.value
         : target.value) as ClassicPreset.InputControl<T>['value']
-
 
     this.value = value
     this.data.setValue(value)
