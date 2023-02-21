@@ -22,10 +22,10 @@
         [data]="{type: 'socket', side: 'input', key: input.key, nodeId: data.id, payload: input.value?.socket, seed: seed }"
         [emit]="emit"
     ></div>
-    <div class="input-title" *ngIf="!input.value?.showControl">{{input.value?.label}}</div>
+    <div class="input-title" *ngIf="!input.value?.control || !input.value?.showControl">{{input.value?.label}}</div>
     <div
         class="input-control"
-        [style.display]="input.value?.showControl ? '' : 'none'"
+        [style.display]="input.value?.control && input.value?.showControl ? '' : 'none'"
         refComponent
         [data]="{type: 'control', payload: input.value?.control }"
         [emit]="emit"
