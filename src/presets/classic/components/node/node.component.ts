@@ -19,7 +19,10 @@ export class RefDirective implements OnChanges {
 
 @Component({
   templateUrl: './node.component.html',
-  styleUrls: ['./node.component.sass']
+  styleUrls: ['./node.component.sass'],
+  host: {
+    'data-testid': 'node'
+  }
 })
 export class NodeComponent implements OnChanges {
   @Input() data!: ClassicPreset.Node;

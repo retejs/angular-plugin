@@ -1,11 +1,12 @@
-<div class="title">{{data.label}}</div>
-<div class="output" *ngFor="let output of data.outputs | keyvalue: sortByIndex">
-    <div class="output-title">{{output.value?.label}}</div>
+<div class="title" data-testid="title">{{data.label}}</div>
+<div class="output" *ngFor="let output of data.outputs | keyvalue: sortByIndex" [attr.data-testid]="'output-'+output.key">
+    <div class="output-title" data-testid="output-title">{{output.value?.label}}</div>
     <div
         class="output-socket"
         refComponent
         [data]="{type: 'socket', side: 'output', key: output.key, nodeId: data.id, payload: output.value?.socket, seed: seed }"
         [emit]="emit"
+        data-testid="output-socket"
     ></div>
 </div>
 <div
@@ -14,20 +15,23 @@
     refComponent
     [data]="{type: 'control', payload: control.value }"
     [emit]="emit"
+    [attr.data-testid]="'control-'+control.key"
 ></div>
-<div class="input" *ngFor="let input of data.inputs | keyvalue: sortByIndex">
+<div class="input" *ngFor="let input of data.inputs | keyvalue: sortByIndex" [attr.data-testid]="'input-'+input.key">
     <div
         class="input-socket"
         refComponent
         [data]="{type: 'socket', side: 'input', key: input.key, nodeId: data.id, payload: input.value?.socket, seed: seed }"
         [emit]="emit"
+        data-testid="input-socket"
     ></div>
-    <div class="input-title" *ngIf="!input.value?.control || !input.value?.showControl">{{input.value?.label}}</div>
+    <div class="input-title" data-testid="input-title" *ngIf="!input.value?.control || !input.value?.showControl">{{input.value?.label}}</div>
     <div
         class="input-control"
         [style.display]="input.value?.control && input.value?.showControl ? '' : 'none'"
         refComponent
         [data]="{type: 'control', payload: input.value?.control }"
         [emit]="emit"
+        data-testid="input-control"
     ></div>
 </div>
