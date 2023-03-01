@@ -1,6 +1,6 @@
 import { BaseSchemes } from 'rete'
 import { NgElement as NgEl, NgElementStrategy } from '@angular/elements';
-import { AngularRenderPlugin } from '.'
+import { AngularRenderPlugin } from './core'
 
 export type ExtraRender = { type: 'render', data: any } | { type: 'rendered', data: any }
 

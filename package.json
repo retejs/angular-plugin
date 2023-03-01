@@ -3,9 +3,13 @@
   "version": "2.0.0-beta.1",
   "scripts": {
     "ng": "ng",
-    "build": "ng-packagr -p ng-package.js",
-    "build:dev": "ng-packagr -p ng-package.js --watch",
-    "prepublishOnly": "npm run build"
+    "build": "npm run build:legacy && npm run build:12 && npm run build:13 && npm run build:14 && npm run build:15",
+    "build:legacy": "ng-packagr -p ng-package.js",
+    "build:12": "npm --prefix ng12 run build",
+    "build:13": "npm --prefix ng13 run build",
+    "build:14": "npm --prefix ng14 run build",
+    "build:15": "npm --prefix ng15 run build",
+    "postinstall": "npm i --prefix ng12 && npm i --prefix ng13 && npm i --prefix ng14 && npm i --prefix ng15"
   },
   "repository": {
     "type": "git",
@@ -22,9 +26,9 @@
   },
   "homepage": "https://github.com/retejs/angular-render-plugin#readme",
   "peerDependencies": {
-    "@angular/common": ">=12.2.0",
-    "@angular/core": ">=12.2.0",
-    "@angular/elements": ">=12.2.0",
+    "@angular/common": ">= 12 < 16",
+    "@angular/core": ">= 12 < 16",
+    "@angular/elements": "^>= 12 < 16",
     "rxjs": ">=6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4",
@@ -32,7 +36,6 @@
     "rete-area-plugin": "^2.0.0-beta.1",
     "rete-render-utils": "^2.0.0-beta.1"
   },
-  "dependencies": {},
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.18",
     "@angular/cli": "~12.2.0",
@@ -41,6 +44,7 @@
     "@angular/compiler-cli": "~12.2.0",
     "@angular/core": "~12.2.0",
     "@angular/elements": "~12.2.0",
+    "@types/estree": "^1.0.0",
     "@types/node": "^12.11.1",
     "ng-packagr": "^12.1.1",
     "rete": "^2.0.0-beta.1",
