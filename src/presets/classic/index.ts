@@ -33,7 +33,7 @@ export function setup<Schemes extends ClassicScheme>(props: ClasssicProps<Scheme
 
   return {
     update(context) {
-      const data = { ...context.data.payload } // force change detection
+      const data = context.data.payload
 
       if (context.data.type === 'connection') {
         const { start, end } = context.data

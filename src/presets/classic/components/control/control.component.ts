@@ -9,7 +9,6 @@ export class ControlComponent<T extends 'text' | 'number'> implements OnChanges 
   @Input() data!: ClassicPreset.InputControl<T>;
   @Input() rendered!: any;
 
-  value?: T extends 'text' ? string : number
 
   @HostListener('pointerdown', ['$event'])
   public pointerdown(event: any) {
@@ -21,13 +20,13 @@ export class ControlComponent<T extends 'text' | 'number'> implements OnChanges 
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    const seed = changes['seed']
     const data = changes['data']
-    const currentValue: ClassicPreset.InputControl<T> = data.currentValue
 
-    if (currentValue.value !== this.value) {
-      this.value = currentValue.value
+    if ((seed && seed.currentValue !== seed.previousValue)
+      || (data && data.currentValue !== data.previousValue)) {
+      this.cdr.detectChanges()
     }
-    this.cdr.detectChanges()
     requestAnimationFrame(() => this.rendered())
   }
 
@@ -37,7 +36,7 @@ export class ControlComponent<T extends 'text' | 'number'> implements OnChanges 
         ? +target.value
         : target.value) as ClassicPreset.InputControl<T>['value']
 
-    this.value = value
     this.data.setValue(value)
+    this.cdr.detectChanges()
   }
 }

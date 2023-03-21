@@ -36,6 +36,7 @@ function getRenderer(): Renderer {
       Object.keys(props).forEach(key => {
         ngElement.ngElementStrategy.setInputValue(key, props[key])
       })
+      ngElement.ngElementStrategy.setInputValue('seed', Math.random())
     },
     unmount(element) {
       const existing = elements.get(element)
