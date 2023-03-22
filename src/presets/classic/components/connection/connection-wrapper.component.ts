@@ -1,17 +1,11 @@
-import { Component, Input, OnInit, ChangeDetectorRef, OnChanges } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectorRef, OnChanges, ViewContainerRef, ComponentFactoryResolver, ComponentRef } from '@angular/core';
 import { ClassicPreset } from 'rete';
 import { Position } from '../../../../types';
 
 type PositionWatcher = (cb: (value: Position) => void) => (() => void)
 
 @Component({
-  template: `<connection
-      *ngIf="_start && _end && _path"
-      [data]="data"
-      [start]="_start"
-      [end]="_end"
-      [path]="_path"
-    ></connection>`
+  template: ''
 })
 export class ConnectionWrapperComponent implements OnInit, OnChanges{
   @Input() data!: ClassicPreset.Connection<ClassicPreset.Node, ClassicPreset.Node>;
@@ -19,6 +13,9 @@ export class ConnectionWrapperComponent implements OnInit, OnChanges{
   @Input() end!: Position | PositionWatcher
   @Input() path!: (start: Position, end: Position) => Promise<string>
   @Input() rendered!: any
+  @Input() connectionComponent!: any
+
+  ref!: ComponentRef<any>
 
   startOb: Position | null = null
   get _start(): Position | null {
@@ -30,7 +27,7 @@ export class ConnectionWrapperComponent implements OnInit, OnChanges{
   }
   _path: string
 
-  constructor(private cdr: ChangeDetectorRef)  {
+  constructor(private cdr: ChangeDetectorRef, public viewContainerRef: ViewContainerRef, private componentFactoryResolver: ComponentFactoryResolver)  {
     this.cdr.detach()
   }
 
@@ -38,6 +35,7 @@ export class ConnectionWrapperComponent implements OnInit, OnChanges{
     await this.updatePath()
     requestAnimationFrame(() => this.rendered())
     this.cdr.detectChanges()
+    this.update()
   }
 
   async updatePath() {
@@ -52,6 +50,7 @@ export class ConnectionWrapperComponent implements OnInit, OnChanges{
         this.startOb = value
         await this.updatePath()
         this.cdr.detectChanges()
+        this.update()
       })
     }
     if (typeof this.end === 'function') {
@@ -59,7 +58,20 @@ export class ConnectionWrapperComponent implements OnInit, OnChanges{
         this.endOb = value
         await this.updatePath()
         this.cdr.detectChanges()
+        this.update()
       })
     }
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.connectionComponent);
+    this.viewContainerRef.clear();
+
+    this.ref = this.viewContainerRef.createComponent(componentFactory);
+    this.update()
+  }
+
+  update() {
+    this.ref.instance.data = this.data
+    this.ref.instance.start = this._start
+    this.ref.instance.end = this._end
+    this.ref.instance.path = this._path
   }
 }

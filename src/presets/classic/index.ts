@@ -5,6 +5,7 @@ import { AngularArea2D, ClassicScheme, ExtractPayload } from './types';
 import { NodeComponent } from './components/node/node.component';
 import { SocketComponent } from './components/socket/socket.component';
 import { ControlComponent } from './components/control/control.component';
+import { ConnectionComponent } from './components/connection/connection.component';
 import { ConnectionWrapperComponent } from './components/connection/connection-wrapper.component';
 import { Position, RenderPreset } from '../../types';
 
@@ -67,6 +68,7 @@ export function setup<Schemes extends ClassicScheme>(props: ClasssicProps<Scheme
         }
       }
       if (context.data.type === 'connection') {
+        const component = connection ? connection(context.data) : ConnectionComponent
         const id = context.data.payload.id
         const { sourceOutput, targetInput, source, target } = context.data.payload
         const { start, end, payload } = context.data
@@ -75,6 +77,7 @@ export function setup<Schemes extends ClassicScheme>(props: ClasssicProps<Scheme
           key: `connection-${id}`,
           component: ConnectionWrapperComponent,
           props: {
+            connectionComponent: component,
             data: payload,
             start: start || ((change: any) => positionWatcher(source, 'output', sourceOutput, change)),
             end: end || ((change: any) => positionWatcher(target, 'input', targetInput, change)),
