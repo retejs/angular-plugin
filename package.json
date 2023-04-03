@@ -11,20 +11,22 @@
     "build:15": "npm --prefix ng15 run build",
     "postinstall": "npm i --prefix ng12 && npm i --prefix ng13 && npm i --prefix ng14 && npm i --prefix ng15"
   },
+  "author": "Vitaliy Stoliarov",
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "plugin",
+    "rete",
+    "Rete.js"
+  ],
+  "homepage": "https://retejs.org",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/retejs/angular-render-plugin.git"
   },
-  "keywords": [
-    "angular",
-    "rete.js"
-  ],
-  "author": "Vitaliy Stoliarov",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/retejs/angular-render-plugin/issues"
   },
-  "homepage": "https://github.com/retejs/angular-render-plugin#readme",
   "peerDependencies": {
     "@angular/common": ">= 12 < 16",
     "@angular/core": ">= 12 < 16",
