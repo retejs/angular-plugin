@@ -1,93 +1,25 @@
-Angular Render (experimental)
+Rete.js Angular render plugin
 ====
-#### Rete.js plugin
+[![Made in Ukraine](https://img.shields.io/badge/made_in-ukraine-ffd700.svg?labelColor=0057b7)](https://stand-with-ukraine.pp.ua)
+[![Discord](https://img.shields.io/discord/1081223198055604244?color=%237289da&label=Discord)](https://discord.gg/cxSFkPZdsV)
 
-```ts
-import { AngularRenderPlugin } from 'rete-angular-render-plugin';
+**Rete.js plugin**
 
-editor.use(AngularRenderPlugin);
-```
+## Key features
 
-Import ReteModule
-```ts
-import { ReteModule } from 'rete-angular-render-plugin';
+- **Render elements**: visualize an elements such as nodes and connections using Angular components
+- **Customization**: modify appearance and behavior for a personalized workflow
+- **Presets**: predefined Angular components for different types of features
+  -  **[Classic](https://retejs.org/docs/guides/renderers/angular#connect-plugin)**: provides a classic visualization of nodes, connections, and controls
 
-@NgModule({
-  imports: [ReteModule]
-})
-export class AppModule {}
-```
+## Getting Started
 
-Examples
----
+Please refer to the [guide](https://retejs.org/docs/guides/renderers/angular) and [example](https://retejs.org/examples/angular/basic) using this plugin
 
-- [Codesandbox](https://codesandbox.io/s/retejs-angular-render-v29f9)
+## Contribution
 
+Please refer to the [Contribution](https://retejs.org/docs/contribution) guide
 
-Control
----
+## License
 
-```ts
-import { AngularControl } from 'rete-angular-render-plugin';
-
-export class NumControl extends Control implements AngularControl {
-  component: Type<ControlComponent>
-  props: {[key: string]: unknown}
-  
-  constructor(key) {
-    super(key);
-    
-    this.component = ControlComponent;
-    this.props = // key-value
-// ...
-```
-
-Custom node
----
-
-Extend node component
-```ts
-import { Component, ChangeDetectorRef } from "@angular/core";
-import { NodeComponent, NodeService } from 'rete-angular-render-plugin';
-
-@Component({
-  templateUrl: './node.component.html', // copy template from src/node
-  styleUrls: ['./node.component.sass'], // copy styles from src/node
-  providers: [NodeService]
-})
-export class MyNodeComponent extends NodeComponent {
-  constructor(protected service: NodeService, protected cdr: ChangeDetectorRef) {
-    super(service, cdr);
-  }
-}
-```
-
-Add component to `entryComponents` of your module
-```ts
-@NgModule({
-  entryComponents: [MyNodeComponent]
-})
-export class AppModule {}
-```
-
-Custom component for all nodes
-```ts
-editor.use(AngularRenderPlugin, { component: MyNodeComponent });
-```
-
-Custom component for specific node
-```ts
-import { Component } from 'rete';
-import { AngularComponent, AngularComponentData } from 'rete-angular-render-plugin';
-
-export class AddComponent extends Component implements AngularComponent {
-  data: AngularComponentData;
-
-  constructor() {
-    super('Add');
-    this.data.render = 'angular';
-    this.data.component = MyNodeComponent;
-  }
-// ...
-```
-
+[MIT](https://github.com/retejs/angular-render-plugin/blob/master/LICENSE)
