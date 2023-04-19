@@ -22,6 +22,7 @@ export const key = 'rete-angular-render-element'
     CommonModule
   ],
   exports: [
+    RefDirective,
     NodeComponent,
     ConnectionComponent,
     ConnectionWrapperComponent,
