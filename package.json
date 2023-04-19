@@ -30,7 +30,7 @@
   "peerDependencies": {
     "@angular/common": ">= 12 < 16",
     "@angular/core": ">= 12 < 16",
-    "@angular/elements": "^>= 12 < 16",
+    "@angular/elements": ">= 12 < 16",
     "rete": "^2.0.0-beta.1",
     "rete-area-plugin": "^2.0.0-beta.1",
     "rete-render-utils": "^2.0.0-beta.1",
@@ -51,7 +51,7 @@
     "ng-packagr": "^12.1.1",
     "rete": "^2.0.0-beta.1",
     "rete-area-plugin": "^2.0.0-beta.1",
-    "rete-cli": "^1.0.0-beta.26",
+    "rete-cli": "^1.0.0-beta.28",
     "rete-render-utils": "^2.0.0-beta.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
