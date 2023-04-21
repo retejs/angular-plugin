@@ -1,5 +1,5 @@
-import { Component, Input, ChangeDetectionStrategy, HostBinding, ElementRef, OnInit, ChangeDetectorRef, OnChanges } from '@angular/core';
-import { ClassicPreset } from 'rete';
+import { Component, Input, HostBinding, ElementRef, ChangeDetectorRef, OnChanges } from '@angular/core';
+import { ClassicPreset as Classic } from 'rete';
 import { Directive } from '@angular/core';
 import { KeyValue } from '@angular/common';
 
@@ -17,6 +17,8 @@ export class RefDirective implements OnChanges {
   }
 }
 
+type SortValue<N extends Classic.Node> = (N['controls'] | N['inputs']  | N['outputs'])[string]
+
 @Component({
   templateUrl: './node.component.html',
   styleUrls: ['./node.component.sass'],
@@ -25,7 +27,7 @@ export class RefDirective implements OnChanges {
   }
 })
 export class NodeComponent implements OnChanges {
-  @Input() data!: ClassicPreset.Node;
+  @Input() data!: Classic.Node;
   @Input() emit!: (data: any) => void
   @Input() rendered!: () => void
 
@@ -45,9 +47,9 @@ export class NodeComponent implements OnChanges {
     this.seed++ // force render sockets
   }
 
-  sortByIndex<N extends object, T extends KeyValue<string, N & { index?: number }>>(a: T, b: T) {
-    const ai = a.value.index || 0
-    const bi = b.value.index || 0
+  sortByIndex<N extends Classic.Node, I extends KeyValue<string, SortValue<N>>>(a: I, b: I) {
+    const ai = a.value?.index || 0
+    const bi = b.value?.index || 0
 
     return ai - bi
   }
