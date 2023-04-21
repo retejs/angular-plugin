@@ -1,3 +1,4 @@
+import { Type } from '@angular/core';
 import { ClassicPreset, getUID } from 'rete';
 import { AreaPlugin } from 'rete-area-plugin';
 import { classicConnectionPath, loopConnectionPath, SocketPositionWatcher, useDOMSocketPosition } from 'rete-render-utils';
@@ -10,9 +11,9 @@ import { ConnectionWrapperComponent } from './components/connection/connection-w
 import { Position, RenderPreset } from '../../types';
 
 
-type AngularComponent = any
+type AngularComponent = Type<any>
 type CustomizationProps <Schemes extends ClassicScheme>= {
-  node?: (data: ExtractPayload<Schemes, 'node'>) => typeof Node | null
+  node?: (data: ExtractPayload<Schemes, 'node'>) => AngularComponent | null
   connection?: (data: ExtractPayload<Schemes, 'connection'>) => AngularComponent | null
   socket?: (data: ExtractPayload<Schemes, 'socket'>) => AngularComponent | null
   control?: (data: ExtractPayload<Schemes, 'control'>) => AngularComponent | null
