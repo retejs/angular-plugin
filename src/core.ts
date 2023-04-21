@@ -94,7 +94,7 @@ export class AngularRenderPlugin<Schemes extends BaseSchemes, T extends ExtraRen
     if (existing) {
       this.presets.forEach(preset => {
         if (this.owners.get(element) !== preset) return
-        const result = preset.update(context as T, this)
+        const result = preset.update(context as Extract<T, { type: 'render' }>, this)
 
         if (result) {
           this.renderer.update(existing, result)
@@ -104,7 +104,7 @@ export class AngularRenderPlugin<Schemes extends BaseSchemes, T extends ExtraRen
     }
 
     for (const preset of this.presets) {
-      const result = preset.mount(context, this)
+      const result = preset.mount(context as Extract<T, { type: 'render' }>, this)
 
       if (!result) continue
 
@@ -118,7 +118,7 @@ export class AngularRenderPlugin<Schemes extends BaseSchemes, T extends ExtraRen
     return
   }
 
-  public addPreset(preset: RenderPreset<Schemes, T | { type: 'render', data: RenderData<Schemes> }>) {
-    this.presets.push(preset)
+  public addPreset<K>(preset: RenderPreset<Schemes, K extends T ? K : T>) {
+    this.presets.push(preset as RenderPreset<Schemes, T>)
   }
 }

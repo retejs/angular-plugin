@@ -1,15 +1,14 @@
 import { Type } from '@angular/core';
-import { ClassicPreset, getUID } from 'rete';
+import { CanAssignSignal, ClassicPreset, getUID } from 'rete';
 import { AreaPlugin } from 'rete-area-plugin';
 import { classicConnectionPath, loopConnectionPath, SocketPositionWatcher, useDOMSocketPosition } from 'rete-render-utils';
-import { AngularArea2D, ClassicScheme, ExtractPayload } from './types';
+import { AngularArea2D, ClassicScheme, RenderPayload, ExtractPayload } from './types';
 import { NodeComponent } from './components/node/node.component';
 import { SocketComponent } from './components/socket/socket.component';
 import { ControlComponent } from './components/control/control.component';
 import { ConnectionComponent } from './components/connection/connection.component';
 import { ConnectionWrapperComponent } from './components/connection/connection-wrapper.component';
-import { Position, RenderPreset } from '../../types';
-
+import { ExtraRender, Position, RenderPreset } from '../../types';
 
 type AngularComponent = Type<any>
 type CustomizationProps <Schemes extends ClassicScheme>= {
@@ -19,17 +18,22 @@ type CustomizationProps <Schemes extends ClassicScheme>= {
   control?: (data: ExtractPayload<Schemes, 'control'>) => AngularComponent | null
 }
 
-type ClasssicProps<Schemes extends ClassicScheme> = (
+type IsCompatible<K> = Extract<K, { type: 'render' | 'rendered' }> extends { type: 'render' | 'rendered', data: infer P } ? CanAssignSignal<P, RenderPayload<ClassicScheme>> : false
+type Substitute<K, Schemes extends ClassicScheme> = IsCompatible<K> extends true ? K : AngularArea2D<Schemes>
+
+type ClasssicProps<Schemes extends ClassicScheme, K extends ExtraRender> = (
   | { socketPositionWatcher: SocketPositionWatcher }
-  | { area: AreaPlugin<Schemes, AngularArea2D<Schemes>> }
+  | { area: AreaPlugin<Schemes, Substitute<K, Schemes>> }
 ) & {
   customize?: CustomizationProps<Schemes>
 }
 
-export function setup<Schemes extends ClassicScheme>(props: ClasssicProps<Schemes>): RenderPreset<Schemes, AngularArea2D<Schemes>> {
+export function setup<Schemes extends ClassicScheme, K extends ExtraRender>(
+  props: ClasssicProps<Schemes, K>
+): RenderPreset<Schemes, AngularArea2D<Schemes> | K> {
   const positionWatcher = 'socketPositionWatcher' in props
     ? props.socketPositionWatcher
-    : useDOMSocketPosition(props.area)
+    : useDOMSocketPosition(props.area as AreaPlugin<Schemes, AngularArea2D<Schemes>>)
   const { node, connection, socket, control } = props.customize || {}
 
 
