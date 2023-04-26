@@ -11,6 +11,9 @@ Rete.js Angular render plugin
 - **Customization**: modify appearance and behavior for a personalized workflow
 - **Presets**: predefined Angular components for different types of features
   -  **[Classic](https://retejs.org/docs/guides/renderers/angular#connect-plugin)**: provides a classic visualization of nodes, connections, and controls
+  -  **[Context menu](https://retejs.org/docs/guides/context-menu#render-context-menu)**: provides a classic appearance for `rete-context-menu-plugin`
+  -  **[Minimap](https://retejs.org/docs/guides/minimap#render)**: provides a classic appearance for `rete-minimap-plugin`
+  -  **[Reroute](https://retejs.org/docs/guides/reroute#rendering)**: provides a classic appearance for `rete-connection-reroute-plugin`
 
 ## Getting Started
 
