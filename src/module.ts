@@ -7,8 +7,6 @@ import { SocketComponent } from './presets/classic/components/socket/socket.comp
 import { ConnectionWrapperComponent } from './presets/classic/components/connection/connection-wrapper.component';
 import { ControlComponent } from './presets/classic/components/control/control.component';
 
-export const key = 'rete-angular-render-element'
-
 @NgModule({
   declarations: [
     RefDirective,
