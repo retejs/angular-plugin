@@ -1,0 +1,16 @@
+@import "../../context-vars"
+
+:host(.hasSubitems)
+  &:after
+    content: '►'
+    position: absolute
+    opacity: 0.6
+    right: 5px
+    top: 5px
+    font-family: initial
+
+.subitems
+  position: absolute
+  top: 0
+  left: 100%
+  width: $width

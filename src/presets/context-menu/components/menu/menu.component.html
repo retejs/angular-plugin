@@ -1,0 +1,8 @@
+<div class="block" *ngIf="searchBar">
+  <context-menu-search [value]="filter" (update)="setFilter($event)"></context-menu-search>
+</div>
+
+<context-menu-item *ngFor="let item of getItems()" [delay]="delay" (select)="item.handler()" [subitems]="item.subitems"
+  (hide)="onHide()">
+  {{ item.label }}
+</context-menu-item>

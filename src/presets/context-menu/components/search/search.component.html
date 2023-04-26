@@ -1,0 +1,1 @@
+<input class="search" [value]="value" (input)="update.emit($any($event.target)?.value || '')" />

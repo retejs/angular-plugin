@@ -1,0 +1,6 @@
+<ng-content></ng-content>
+<div class="subitems" *ngIf="subitems && visibleSubitems">
+  <context-menu-item *ngFor="let item of subitems" [delay]="delay" (select)="item.handler()" (hide)="hide.emit()">
+    {{ item.label }}
+  </context-menu-item>
+</div>
