@@ -1,0 +1,6 @@
+<minimap-mini-node *ngFor="let node of nodes; trackBy: identifyMiniNode" [left]="scale(node.left)"
+  [top]="scale(node.top)" [width]="scale(node.width)" [height]="scale(node.height)">
+
+</minimap-mini-node>
+<minimap-mini-viewport [left]="viewport.left" [top]="viewport.top" [width]="viewport.width" [height]="viewport.height"
+  [containerWidth]="el.nativeElement?.clientWidth" [translate]="translate"></minimap-mini-viewport>
