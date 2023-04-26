@@ -1,6 +1,6 @@
 {
   "name": "rete-angular-render-plugin",
-  "version": "2.0.0-beta.13",
+  "version": "2.0.0-beta.14",
   "scripts": {
     "ng": "ng",
     "build": "npm run build:legacy && npm run build:12 && npm run build:13 && npm run build:14 && npm run build:15",
