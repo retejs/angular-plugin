@@ -3,7 +3,10 @@ import { MinimapData } from '../../types';
 
 @Component({
   templateUrl: './minimap.component.html',
-  styleUrls: ['./minimap.component.sass']
+  styleUrls: ['./minimap.component.sass'],
+  host: {
+    'data-testid': 'minimap'
+  }
 })
 export class MinimapComponent implements OnChanges {
   @Input() rendered!: () => void

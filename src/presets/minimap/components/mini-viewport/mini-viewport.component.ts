@@ -5,7 +5,10 @@ import { MinimapData } from '../../types';
 @Component({
   selector: 'minimap-mini-viewport',
   templateUrl: './mini-viewport.component.html',
-  styleUrls: ['./mini-viewport.component.sass']
+  styleUrls: ['./mini-viewport.component.sass'],
+  host: {
+    'data-testid': 'minimap-viewport'
+  }
 })
 export class MiniViewportComponent {
   @Input() left!: number

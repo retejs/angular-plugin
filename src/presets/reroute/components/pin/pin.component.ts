@@ -7,7 +7,10 @@ const pinSize = 20
 @Component({
   selector: 'reroute-pin',
   template: '',
-  styleUrls: ['./pin.component.sass']
+  styleUrls: ['./pin.component.sass'],
+  host: {
+    'data-testid': 'pin'
+  }
 })
 export class PinComponent implements OnChanges {
   @Input() position!: Position

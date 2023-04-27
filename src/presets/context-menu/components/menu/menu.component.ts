@@ -4,7 +4,10 @@ import { debounce } from '../../debounce';
 
 @Component({
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.sass', '../../block.sass']
+  styleUrls: ['./menu.component.sass', '../../block.sass'],
+  host: {
+    'data-testid': 'context-menu'
+  }
 })
 export class ContextMenuComponent implements OnChanges, OnDestroy {
   @Input() items!: Item[]

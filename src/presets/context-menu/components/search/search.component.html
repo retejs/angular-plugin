@@ -1,1 +1,2 @@
-<input class="search" [value]="value" (input)="update.emit($any($event.target)?.value || '')" />
+<input class="search" [value]="value" (input)="update.emit($any($event.target)?.value || '')"
+  data-testid="context-menu-search-input" />

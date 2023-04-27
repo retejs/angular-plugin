@@ -5,7 +5,10 @@ import { debounce } from '../../debounce';
 @Component({
   selector: 'context-menu-item',
   templateUrl: './item.component.html',
-  styleUrls: ['./item.component.sass', '../../block.sass']
+  styleUrls: ['./item.component.sass', '../../block.sass'],
+  host: {
+    'data-testid': 'context-menu-item'
+  }
 })
 export class ContextMenuItemComponent  {
   @Input() subitems?: Item[]

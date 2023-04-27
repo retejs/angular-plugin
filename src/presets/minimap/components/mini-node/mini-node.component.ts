@@ -3,7 +3,10 @@ import { Component, Input, HostBinding } from '@angular/core';
 @Component({
   selector: 'minimap-mini-node',
   templateUrl: './mini-node.component.html',
-  styleUrls: ['./mini-node.component.sass']
+  styleUrls: ['./mini-node.component.sass'],
+  host: {
+    'data-testid': 'minimap-node'
+  }
 })
 export class MiniNodeComponent {
   @Input() left!: number
