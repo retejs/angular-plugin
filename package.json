@@ -3,12 +3,13 @@
   "version": "2.0.0-beta.16",
   "scripts": {
     "ng": "ng",
-    "build": "npm run build:legacy && npm run build:12 && npm run build:13 && npm run build:14 && npm run build:15",
+    "build": "npm run build:legacy && npm run build:12 && npm run build:13 && npm run build:14 && npm run build:15 && npm run build:16",
     "build:legacy": "ng-packagr -p ng-package.js",
     "build:12": "npm --prefix ng12 run build",
     "build:13": "npm --prefix ng13 run build",
     "build:14": "npm --prefix ng14 run build",
     "build:15": "npm --prefix ng15 run build",
+    "build:16": "npm --prefix ng16 run build",
     "postinstall": "npm i --prefix ng12 && npm i --prefix ng13 && npm i --prefix ng14 && npm i --prefix ng15"
   },
   "author": "Vitaliy Stoliarov",
@@ -28,9 +29,9 @@
     "url": "https://github.com/retejs/angular-render-plugin/issues"
   },
   "peerDependencies": {
-    "@angular/common": ">= 12 < 16",
-    "@angular/core": ">= 12 < 16",
-    "@angular/elements": ">= 12 < 16",
+    "@angular/common": ">= 12 < 17",
+    "@angular/core": ">= 12 < 17",
+    "@angular/elements": ">= 12 < 17",
     "rete": "^2.0.0-beta.1",
     "rete-area-plugin": "^2.0.0-beta.1",
     "rete-render-utils": "^2.0.0-beta.1",
