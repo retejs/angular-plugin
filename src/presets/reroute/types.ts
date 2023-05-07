@@ -1,5 +1,5 @@
-import { BaseSchemes, ConnectionId } from 'rete'
-import { RenderData } from 'rete-area-plugin'
+import { ConnectionId } from 'rete'
+import { RenderSignal } from '../../types'
 
 export type Position = {
   x: number
@@ -15,12 +15,5 @@ export type PinData = {
   pins: Pin[]
 }
 
-export type PinsData = {
-  element: HTMLElement
-  type: 'reroute-pins'
-  data: PinData
-}
-
-export type PinsRender<Schemes extends BaseSchemes> =
-  | { type: 'render', data: RenderData<Schemes> | PinsData }
-  | { type: 'rendered', data: RenderData<Schemes> | PinsData }
+export type PinsRender =
+  | RenderSignal<'reroute-pins', { data: PinData }>

@@ -1,6 +1,6 @@
 import { BaseSchemes } from 'rete';
 
-import { RenderPreset } from '../../types'
+import { RenderPreset } from '../types'
 import { PinsRender } from './types';
 import { PinsComponent } from './components/pins/pins.component';
 
@@ -10,7 +10,7 @@ type Props = {
   pointerdown?: (id: string) => void
 }
 
-export function setup<Schemes extends BaseSchemes, K extends PinsRender<Schemes>>(props?: Props): RenderPreset<Schemes, K> {
+export function setup<Schemes extends BaseSchemes, K extends PinsRender>(props?: Props): RenderPreset<Schemes, K> {
   const getProps = () => ({
     menu: props?.contextMenu || (() => null),
     translate: props?.translate || (() => null),

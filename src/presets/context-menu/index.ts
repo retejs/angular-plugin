@@ -2,9 +2,9 @@ import { BaseSchemes } from 'rete';
 
 import { ContextMenuRender } from './types';
 import { ContextMenuComponent } from './components/menu/menu.component';
-import { RenderPreset } from '../../types';
+import { RenderPreset } from '../types';
 
-export function setup<Schemes extends BaseSchemes, K extends ContextMenuRender<Schemes>>(props?: { delay?: number }): RenderPreset<Schemes, K> {
+export function setup<Schemes extends BaseSchemes, K extends ContextMenuRender>(props?: { delay?: number }): RenderPreset<Schemes, K> {
   const delay = typeof props?.delay === 'undefined' ? 1000 : props.delay
 
   return {

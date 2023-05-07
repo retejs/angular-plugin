@@ -1,9 +1,9 @@
 import { Injector } from '@angular/core';
-import { BaseSchemes, Scope } from 'rete'
-import { Area2DInherited, RenderData } from 'rete-area-plugin'
+import { BaseSchemes, CanAssignSignal, Scope } from 'rete'
 import { createCustomElement } from '@angular/elements';
 
-import { ExtraRender, NgElement, NodeProps, Position, RenderPreset } from './types'
+import { NgElement, NodeProps, Position, RenderSignal } from './types'
+import { RenderPreset } from './presets/types';
 
 type Item = { key: string, ngElement: NgElement }
 
@@ -55,9 +55,14 @@ function getRenderer(): Renderer {
 }
 
 type Produces<Schemes extends BaseSchemes> =
-    | { type: 'connectionpath', data: { payload: Schemes['Connection'], path?: string, points: Position[] } }
+  | { type: 'connectionpath', data: { payload: Schemes['Connection'], path?: string, points: Position[] } }
 
-export class AngularRenderPlugin<Schemes extends BaseSchemes, T extends ExtraRender = never> extends Scope<Produces<Schemes>, Area2DInherited<Schemes, T>> {
+type Requires<Schemes extends BaseSchemes> =
+  | RenderSignal<'node', { payload: Schemes['Node'] }>
+  | RenderSignal<'connection', { payload: Schemes['Connection'], start?: Position, end?: Position }>
+  | { type: 'unmount', data: { element: HTMLElement } }
+
+export class AngularRenderPlugin<Schemes extends BaseSchemes, T = Requires<Schemes>> extends Scope<Produces<Schemes>, [Requires<Schemes> | T]> {
   presets: RenderPreset<Schemes, T>[] = []
   renderer: Renderer
   owners = new WeakMap<HTMLElement, RenderPreset<Schemes, T>>()
@@ -67,49 +72,58 @@ export class AngularRenderPlugin<Schemes extends BaseSchemes, T extends ExtraRen
     this.renderer = getRenderer()
 
     this.addPipe(context => {
-      if (!('type' in context)) return
+      if (!context || typeof context !== 'object' || !('type' in context)) return context
       if (context.type === 'unmount') {
         this.unmount(context.data.element)
       } else if (context.type === 'render') {
         if ('filled' in context.data && context.data.filled) {
           return context
         }
-        if (this.mount(context.data.element, context as T)) {
+        if (this.mount(context.data.element, context)) {
           return {
             ...context,
             data: {
                 ...context.data,
                 filled: true
             }
-          }
+          } as typeof context
         }
       }
       return context
     })
   }
 
+  setParent(scope: Scope<Requires<Schemes> | T>): void {
+    super.setParent(scope)
+
+    this.presets.forEach(preset => {
+      if (preset.attach) preset.attach(this)
+    })
+  }
+
+
   private unmount(element: HTMLElement) {
     this.owners.delete(element)
     this.renderer.unmount(element)
   }
 
-  private mount(element: HTMLElement, context: T) {
+  private mount(element: HTMLElement, context: Requires<Schemes>) {
     const existing = this.renderer.get(element)
 
     if (existing) {
       this.presets.forEach(preset => {
         if (this.owners.get(element) !== preset) return
-        const result = preset.update(context as Extract<T, { type: 'render' }>, this)
+        const result = preset.update(context as unknown as Extract<T, { type: 'render' }>, this)
 
         if (result) {
           this.renderer.update(existing, result)
         }
       })
-      return true // TODO ??
+      return true
     }
 
     for (const preset of this.presets) {
-      const result = preset.mount(context as Extract<T, { type: 'render' }>, this)
+      const result = preset.mount(context as unknown as Extract<T, { type: 'render' }>, this)
 
       if (!result) continue
 
@@ -123,7 +137,10 @@ export class AngularRenderPlugin<Schemes extends BaseSchemes, T extends ExtraRen
     return
   }
 
-  public addPreset<K>(preset: RenderPreset<Schemes, K extends T ? K : T>) {
-    this.presets.push(preset as RenderPreset<Schemes, T>)
+  public addPreset<K>(preset: RenderPreset<Schemes, CanAssignSignal<T, K> extends true ? K : 'Cannot apply preset. Provided signals are not compatible'>) {
+    const local = preset as unknown as RenderPreset<Schemes, T>
+
+    if (local.attach) local.attach(this)
+    this.presets.push(local)
   }
 }

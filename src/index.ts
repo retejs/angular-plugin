@@ -2,7 +2,7 @@ export * as Presets from './presets'
 
 export { AngularArea2D } from './presets/classic/types'
 export { ReteModule } from './module'
-export { RenderPreset } from './types'
+export { RenderPreset } from './presets/types'
 export { ReteContextMenuModule } from './presets/context-menu/module'
 export { ReteMinimapModule } from './presets/minimap/module'
 export { ReteRerouteModule } from './presets/reroute/module'

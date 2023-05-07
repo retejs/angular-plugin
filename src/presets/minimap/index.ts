@@ -1,10 +1,10 @@
 import { BaseSchemes } from 'rete';
 
-import { RenderPreset } from '../../types';
+import { RenderPreset } from '../types';
 import { MinimapRender } from './types';
 import { MinimapComponent } from './components/minimap/minimap.component';
 
-export function setup<Schemes extends BaseSchemes, K extends MinimapRender<Schemes>>(props?: { size?: number }): RenderPreset<Schemes, K> {
+export function setup<Schemes extends BaseSchemes, K extends MinimapRender>(props?: { size?: number }): RenderPreset<Schemes, K> {
   return {
     update(context) {
       if (context.data.type === 'minimap') {

@@ -1,14 +1,15 @@
 import { Type } from '@angular/core';
-import { CanAssignSignal, ClassicPreset, getUID } from 'rete';
+import { ClassicPreset, getUID } from 'rete';
 import { AreaPlugin } from 'rete-area-plugin';
-import { classicConnectionPath, loopConnectionPath, SocketPositionWatcher, useDOMSocketPosition } from 'rete-render-utils';
-import { AngularArea2D, ClassicScheme, RenderPayload, ExtractPayload } from './types';
+import { classicConnectionPath, loopConnectionPath, SocketPositionWatcher, getDOMSocketPosition } from 'rete-render-utils';
+import { AngularArea2D, ClassicScheme, ExtractPayload } from './types';
 import { NodeComponent } from './components/node/node.component';
 import { SocketComponent } from './components/socket/socket.component';
 import { ControlComponent } from './components/control/control.component';
 import { ConnectionComponent } from './components/connection/connection.component';
 import { ConnectionWrapperComponent } from './components/connection/connection-wrapper.component';
-import { ExtraRender, Position, RenderPreset } from '../../types';
+import { Position } from '../../types';
+import { RenderPreset }  from '../types'
 
 type AngularComponent = Type<any>
 type CustomizationProps <Schemes extends ClassicScheme>= {
@@ -18,26 +19,24 @@ type CustomizationProps <Schemes extends ClassicScheme>= {
   control?: (data: ExtractPayload<Schemes, 'control'>) => AngularComponent | null
 }
 
-type IsCompatible<K> = Extract<K, { type: 'render' | 'rendered' }> extends { type: 'render' | 'rendered', data: infer P } ? CanAssignSignal<P, RenderPayload<ClassicScheme>> : false
-type Substitute<K, Schemes extends ClassicScheme> = IsCompatible<K> extends true ? K : AngularArea2D<Schemes>
-
-type ClasssicProps<Schemes extends ClassicScheme, K extends ExtraRender> = (
-  | { socketPositionWatcher: SocketPositionWatcher }
-  | { area: AreaPlugin<Schemes, Substitute<K, Schemes>> }
-) & {
+type ClassicProps<Schemes extends ClassicScheme, K> = {
+  socketPositionWatcher?: SocketPositionWatcher<AreaPlugin<Schemes, K>>
   customize?: CustomizationProps<Schemes>
 }
 
-export function setup<Schemes extends ClassicScheme, K extends ExtraRender>(
-  props: ClasssicProps<Schemes, K>
-): RenderPreset<Schemes, AngularArea2D<Schemes> | K> {
-  const positionWatcher = 'socketPositionWatcher' in props
-    ? props.socketPositionWatcher
-    : useDOMSocketPosition(props.area as AreaPlugin<Schemes, AngularArea2D<Schemes>>)
-  const { node, connection, socket, control } = props.customize || {}
+export function setup<Schemes extends ClassicScheme, K extends AngularArea2D<Schemes>>(
+  props?: ClassicProps<Schemes, K>
+): RenderPreset<Schemes, K> {
+  const positionWatcher = typeof props?.socketPositionWatcher === 'undefined'
+    ? getDOMSocketPosition<Schemes, any>() // fix Type instantiation is excessively deep and possibly infinite.
+    : props?.socketPositionWatcher
+  const { node, connection, socket, control } = props?.customize || {}
 
 
   return {
+    attach(plugin) {
+      positionWatcher.attach(plugin.parentScope<AreaPlugin<Schemes, any>>(AreaPlugin))
+    },
     update(context) {
       const data = context.data.payload
 
@@ -84,8 +83,8 @@ export function setup<Schemes extends ClassicScheme, K extends ExtraRender>(
           props: {
             connectionComponent: component,
             data: payload,
-            start: start || ((change: any) => positionWatcher(source, 'output', sourceOutput, change)),
-            end: end || ((change: any) => positionWatcher(target, 'input', targetInput, change)),
+            start: start || ((change: any) => positionWatcher.listen(source, 'output', sourceOutput, change)),
+            end: end || ((change: any) => positionWatcher.listen(target, 'input', targetInput, change)),
             path: async (start, end) => {
               const response = await plugin.emit({ type: 'connectionpath', data: { payload, points: [start, end] } })
               const { path, points } = response.data
