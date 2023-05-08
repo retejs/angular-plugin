@@ -35,6 +35,8 @@ export function setup<Schemes extends ClassicScheme, K extends AngularArea2D<Sch
 
   return {
     attach(plugin) {
+      if (!plugin.hasParent()) return
+
       positionWatcher.attach(plugin.parentScope<AreaPlugin<Schemes, any>>(AreaPlugin))
     },
     update(context) {
