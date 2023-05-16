@@ -1,4 +1,5 @@
 import { BaseSchemes } from 'rete';
+import { BaseAreaPlugin } from 'rete-area-plugin';
 
 import { RenderPreset } from '../types'
 import { PinsRender } from './types';
@@ -28,10 +29,9 @@ export function setup<Schemes extends BaseSchemes, K extends PinsRender>(props?:
       return null
     },
     mount(context, plugin) {
-      const parent = plugin.parentScope()
-      const emit = parent.emit.bind(parent)
+      const area = plugin.parentScope<BaseAreaPlugin<Schemes, PinsRender>>(BaseAreaPlugin)
       const rendered = () => {
-        emit({ type: 'rendered', data: context.data } as any)
+        area.emit({ type: 'rendered', data: context.data })
       }
 
       if (context.data.type === 'reroute-pins') {
@@ -41,7 +41,8 @@ export function setup<Schemes extends BaseSchemes, K extends PinsRender>(props?:
           props: {
             ...getProps(),
             pins: context.data.data.pins,
-            rendered
+            rendered,
+            getPointer: () => area.area.pointer
           }
         }
       }

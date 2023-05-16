@@ -18,7 +18,7 @@ export class MiniViewportComponent {
   @Input() containerWidth!: number
   @Input() translate!: MinimapData['translate']
 
-  drag = useDrag((dx, dy) => this.onDrag(dx, dy))
+  drag = useDrag((dx, dy) => this.onDrag(dx, dy), e => ({ x: e.pageX, y: e.pageY }))
 
   @HostBinding('style.left') get styleLeft() {
     return this.px(this.scale(this.left))

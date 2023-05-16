@@ -15,13 +15,14 @@ const pinSize = 20
 export class PinComponent implements OnChanges {
   @Input() position!: Position
   @Input() selected?: boolean
+  @Input() getPointer!: () => Position
   @Output() menu = new EventEmitter<void>()
   @Output() translate = new EventEmitter<{ dx: number, dy: number }>()
   @Output() down = new EventEmitter<void>()
 
   drag = useDrag((dx, dy) => {
     this.translate.emit({ dx, dy })
-  })
+  }, () => this.getPointer())
 
   @HostBinding('class.selected') get _selected() {
     return this.selected
@@ -46,7 +47,7 @@ export class PinComponent implements OnChanges {
     this.menu.emit()
   }
 
-  constructor(private cdr: ChangeDetectorRef)  {
+  constructor(private cdr: ChangeDetectorRef) {
     // this.cdr.detach()
   }
 

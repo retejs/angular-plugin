@@ -10,19 +10,22 @@ import { debounce } from '../../debounce';
     'data-testid': 'context-menu-item'
   }
 })
-export class ContextMenuItemComponent  {
+export class ContextMenuItemComponent {
   @Input() subitems?: Item[]
   @Input() delay!: number
   @Output() select = new EventEmitter<void>();
   @Output() hide = new EventEmitter<void>();
 
-  @HostBinding('class.block') get block () { return true }
-  @HostBinding('class.hasSubitems') get hasSubitems () { return this.subitems }
+  @HostBinding('class.block') get block() { return true }
+  @HostBinding('class.hasSubitems') get hasSubitems() { return this.subitems }
 
   @HostListener('click', ['$event']) click(event: MouseEvent) {
     event.stopPropagation()
     this.select.emit()
     this.hide.emit()
+  }
+  @HostListener('pointerdown', ['$event']) pointerdown(event: PointerEvent) {
+    event.stopPropagation()
   }
   @HostListener('wheel', ['$event']) wheel(event: MouseEvent) {
     event.stopPropagation()
@@ -44,7 +47,7 @@ export class ContextMenuItemComponent  {
     this.cdr.detectChanges()
   }
 
-  constructor(private cdr: ChangeDetectorRef)  {
+  constructor(private cdr: ChangeDetectorRef) {
     this.cdr.detach()
   }
 }

@@ -1,5 +1,5 @@
 import { Component, Input, ChangeDetectorRef, OnChanges } from '@angular/core';
-import { Pin, PinData } from '../../types';
+import { Pin, PinData, Position } from '../../types';
 
 @Component({
   templateUrl: './pins.component.html'
@@ -10,8 +10,9 @@ export class PinsComponent implements OnChanges {
   @Input() down?: (id: string) => void
   @Input() translate?: (id: string, dx: number, dy: number) => void
   @Input() menu?: (id: string) => void
+  @Input() getPointer?: () => Position
 
-  constructor(private cdr: ChangeDetectorRef)  {
+  constructor(private cdr: ChangeDetectorRef) {
     this.cdr.detach()
   }
 
