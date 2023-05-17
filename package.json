@@ -1,6 +1,6 @@
 {
   "name": "rete-angular-render-plugin",
-  "version": "2.0.0-beta.18",
+  "version": "2.0.0-beta.19",
   "scripts": {
     "ng": "ng",
     "build": "npm run build:legacy && npm run build:12 && npm run build:13 && npm run build:14 && npm run build:15 && npm run build:16",
@@ -33,7 +33,7 @@
     "@angular/core": ">= 12 < 17",
     "@angular/elements": ">= 12 < 17",
     "rete": "^2.0.0-beta.9",
-    "rete-area-plugin": "^2.0.0-beta.11",
+    "rete-area-plugin": "^2.0.0-beta.12",
     "rete-render-utils": "^2.0.0-beta.12",
     "rxjs": ">=6.6.0",
     "tslib": "^2.3.0",
@@ -50,8 +50,8 @@
     "@types/estree": "^1.0.0",
     "@types/node": "^12.11.1",
     "ng-packagr": "^12.1.1",
-    "rete": "^2.0.0-beta.8",
-    "rete-area-plugin": "^2.0.0-beta.10",
+    "rete": "^2.0.0-beta.9",
+    "rete-area-plugin": "^2.0.0-beta.12",
     "rete-cli": "^1.0.0-beta.28",
     "rete-render-utils": "^2.0.0-beta.11",
     "rxjs": "~6.6.0",
