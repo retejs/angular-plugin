@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectorRef, OnChanges, OnDestroy, HostListener } from '@angular/core';
+import { Component, Input, ChangeDetectorRef, OnChanges, OnDestroy, HostListener, HostBinding } from '@angular/core';
 import { Item } from '../../types';
 import { debounce } from '../../debounce';
 
@@ -23,6 +23,8 @@ export class ContextMenuComponent implements OnChanges, OnDestroy {
     this.cdr.detectChanges()
   })
 
+  @HostBinding('attr.rete-context-menu') customAttribute = ''
+
   @HostListener('mouseover') pointerover() {
     this.hide.cancel()
     this.cdr.detectChanges()
@@ -32,7 +34,7 @@ export class ContextMenuComponent implements OnChanges, OnDestroy {
     this.cdr.detectChanges()
   }
 
-  constructor(private cdr: ChangeDetectorRef)  {
+  constructor(private cdr: ChangeDetectorRef) {
     this.cdr.detach()
   }
 
