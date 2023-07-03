@@ -62,7 +62,7 @@ type Requires<Schemes extends BaseSchemes> =
   | RenderSignal<'connection', { payload: Schemes['Connection'], start?: Position, end?: Position }>
   | { type: 'unmount', data: { element: HTMLElement } }
 
-export class AngularRenderPlugin<Schemes extends BaseSchemes, T = Requires<Schemes>> extends Scope<Produces<Schemes>, [Requires<Schemes> | T]> {
+export class AngularPlugin<Schemes extends BaseSchemes, T = Requires<Schemes>> extends Scope<Produces<Schemes>, [Requires<Schemes> | T]> {
   presets: RenderPreset<Schemes, T>[] = []
   renderer: Renderer
   owners = new WeakMap<HTMLElement, RenderPreset<Schemes, T>>()
@@ -83,8 +83,8 @@ export class AngularRenderPlugin<Schemes extends BaseSchemes, T = Requires<Schem
           return {
             ...context,
             data: {
-                ...context.data,
-                filled: true
+              ...context.data,
+              filled: true
             }
           } as typeof context
         }
