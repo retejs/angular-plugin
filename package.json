@@ -1,6 +1,6 @@
 {
   "name": "rete-angular-plugin",
-  "version": "2.0.0-beta.21",
+  "version": "2.0.0",
   "scripts": {
     "ng": "ng",
     "build": "npm run build:legacy && npm run build:12 && npm run build:13 && npm run build:14 && npm run build:15 && npm run build:16",
@@ -23,18 +23,18 @@
   "homepage": "https://retejs.org",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/retejs/angular-render-plugin.git"
+    "url": "git+https://github.com/retejs/angular-plugin.git"
   },
   "bugs": {
-    "url": "https://github.com/retejs/angular-render-plugin/issues"
+    "url": "https://github.com/retejs/angular-plugin/issues"
   },
   "peerDependencies": {
     "@angular/common": ">= 12 < 17",
     "@angular/core": ">= 12 < 17",
     "@angular/elements": ">= 12 < 17",
-    "rete": "^2.0.0-beta.9",
-    "rete-area-plugin": "^2.0.0-beta.12",
-    "rete-render-utils": "^2.0.0-beta.12",
+    "rete": "^2.0.1",
+    "rete-area-plugin": "^2.0.0",
+    "rete-render-utils": "^2.0.0",
     "rxjs": ">=6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4 || ~0.12.0 || ~0.13.0"
@@ -50,10 +50,10 @@
     "@types/estree": "^1.0.0",
     "@types/node": "^12.11.1",
     "ng-packagr": "^12.1.1",
-    "rete": "^2.0.0-beta.9",
-    "rete-area-plugin": "^2.0.0-beta.12",
-    "rete-cli": "^1.0.0-beta.28",
-    "rete-render-utils": "^2.0.0-beta.11",
+    "rete": "^2.0.1",
+    "rete-area-plugin": "^2.0.0",
+    "rete-cli": "^1.0.1",
+    "rete-render-utils": "^2.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "typescript": "~4.3.5",
