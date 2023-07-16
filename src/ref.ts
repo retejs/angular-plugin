@@ -1,10 +1,10 @@
-import { Input, ElementRef, OnChanges } from '@angular/core';
+import { Input, ElementRef, OnChanges, OnDestroy } from '@angular/core';
 import { Directive } from '@angular/core';
 
 @Directive({
   selector: '[refComponent]'
 })
-export class RefDirective implements OnChanges {
+export class RefDirective implements OnChanges, OnDestroy {
   @Input() data!: any
   @Input() emit!: any
 
@@ -12,5 +12,9 @@ export class RefDirective implements OnChanges {
 
   ngOnChanges() {
     this.emit({ type: 'render', data: { ...this.data, element: this.el.nativeElement } })
+  }
+
+  ngOnDestroy() {
+    this.emit({ type: 'unmount', data: { element: this.el.nativeElement } })
   }
 }
