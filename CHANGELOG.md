@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/retejs/angular-plugin/compare/v2.0.1...v2.0.2) (2023-07-16)
+
+
+### Bug Fixes
+
+* install deps for v16 ([fd667a2](https://github.com/retejs/angular-plugin/commit/fd667a2c3e37fa45bc9df41febf66bd39a84552c))
+
 ## [2.0.1](https://github.com/retejs/angular-plugin/compare/v2.0.0...v2.0.1) (2023-07-16)
 
 
