@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy, AfterViewInit, OnChanges, SimpleChanges, AfterViewChecked, ChangeDetectorRef, HostListener } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, ChangeDetectorRef, HostListener } from '@angular/core';
 import { ClassicPreset } from 'rete';
 
 @Component({
@@ -15,7 +15,7 @@ export class ControlComponent<T extends 'text' | 'number'> implements OnChanges 
     event.stopPropagation();
   }
 
-  constructor(private cdr: ChangeDetectorRef)  {
+  constructor(private cdr: ChangeDetectorRef) {
     this.cdr.detach()
   }
 
@@ -33,8 +33,8 @@ export class ControlComponent<T extends 'text' | 'number'> implements OnChanges 
   onChange(e: Event) {
     const target = e.target as HTMLInputElement
     const value = (this.data.type === 'number'
-        ? +target.value
-        : target.value) as ClassicPreset.InputControl<T>['value']
+      ? +target.value
+      : target.value) as ClassicPreset.InputControl<T>['value']
 
     this.data.setValue(value)
     this.cdr.detectChanges()
