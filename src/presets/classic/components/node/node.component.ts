@@ -1,23 +1,8 @@
-import { Component, Input, HostBinding, ElementRef, ChangeDetectorRef, OnChanges } from '@angular/core';
+import { Component, Input, HostBinding, ChangeDetectorRef, OnChanges } from '@angular/core';
 import { ClassicPreset as Classic } from 'rete';
-import { Directive } from '@angular/core';
 import { KeyValue } from '@angular/common';
 
-@Directive({
-  selector: '[refComponent]'
-})
-export class RefDirective implements OnChanges {
-  @Input() data!: any
-  @Input() emit!: any
-
-  constructor(private el: ElementRef) { }
-
-  ngOnChanges() {
-    this.emit({ type: 'render', data: { ...this.data, element: this.el.nativeElement } })
-  }
-}
-
-type SortValue<N extends Classic.Node> = (N['controls'] | N['inputs']  | N['outputs'])[string]
+type SortValue<N extends Classic.Node> = (N['controls'] | N['inputs'] | N['outputs'])[string]
 
 @Component({
   templateUrl: './node.component.html',
@@ -37,7 +22,7 @@ export class NodeComponent implements OnChanges {
     return this.data.selected
   }
 
-  constructor(private cdr: ChangeDetectorRef)  {
+  constructor(private cdr: ChangeDetectorRef) {
     this.cdr.detach()
   }
 
