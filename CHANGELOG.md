@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/retejs/angular-plugin/compare/v2.0.0...v2.0.1) (2023-07-16)
+
+
+### Bug Fixes
+
+* emit 'unmount' ([4d17a2e](https://github.com/retejs/angular-plugin/commit/4d17a2e6d05567ff83c48881ba3edcf5dfe87801))
+
 ## v2.0.0-beta.19
 
 Breaking changes:
