@@ -10,7 +10,8 @@
     "build:14": "npm --prefix ng14 run build",
     "build:15": "npm --prefix ng15 run build",
     "build:16": "npm --prefix ng16 run build",
-    "postinstall": "npm i --prefix ng12 && npm i --prefix ng13 && npm i --prefix ng14 && npm i --prefix ng15 && npm i --prefix ng16"
+    "postinstall": "npm i --prefix ng12 && npm i --prefix ng13 && npm i --prefix ng14 && npm i --prefix ng15 && npm i --prefix ng16",
+    "doc": "rete doc"
   },
   "author": "Vitaliy Stoliarov",
   "license": "MIT",

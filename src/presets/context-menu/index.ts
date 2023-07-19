@@ -4,6 +4,9 @@ import { ContextMenuRender } from './types';
 import { ContextMenuComponent } from './components/menu/menu.component';
 import { RenderPreset } from '../types';
 
+/**
+ * Preset for rendering context menu.
+ */
 export function setup<Schemes extends BaseSchemes, K extends ContextMenuRender>(props?: { delay?: number }): RenderPreset<Schemes, K> {
   const delay = typeof props?.delay === 'undefined' ? 1000 : props.delay
 

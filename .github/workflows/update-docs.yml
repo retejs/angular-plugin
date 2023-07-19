@@ -3,12 +3,12 @@ name: Update docs
 on:
   workflow_dispatch:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   pull:
     uses: retejs/.github/.github/workflows/update-docs.yml@main
     secrets: inherit
     with:
-      filename: '1.rete'
-      package: rete
+      filename: "7.rete-angular-plugin"
+      package: rete-angular-plugin

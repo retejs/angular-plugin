@@ -54,7 +54,11 @@ function getRenderer(): Renderer {
   }
 }
 
-type Produces<Schemes extends BaseSchemes> =
+/**
+ * Signals that can be emitted by the plugin
+ * @priority 10
+ */
+export type Produces<Schemes extends BaseSchemes> =
   | { type: 'connectionpath', data: { payload: Schemes['Connection'], path?: string, points: Position[] } }
 
 type Requires<Schemes extends BaseSchemes> =
@@ -62,11 +66,23 @@ type Requires<Schemes extends BaseSchemes> =
   | RenderSignal<'connection', { payload: Schemes['Connection'], start?: Position, end?: Position }>
   | { type: 'unmount', data: { element: HTMLElement } }
 
+/**
+ * Angular plugin. Renders nodes, connections and other elements using React.
+ * @priority 9
+ * @emits connectionpath
+ * @listens render
+ * @listens unmount
+ */
 export class AngularPlugin<Schemes extends BaseSchemes, T = Requires<Schemes>> extends Scope<Produces<Schemes>, [Requires<Schemes> | T]> {
   presets: RenderPreset<Schemes, T>[] = []
   renderer: Renderer
   owners = new WeakMap<HTMLElement, RenderPreset<Schemes, T>>()
 
+  /**
+   * @constructor
+   * @param params Plugin properties
+   * @param params.injector Angular's Injector instance
+   */
   constructor(private params: { injector: Injector }) {
     super('angular-render')
     this.renderer = getRenderer()
@@ -137,6 +153,10 @@ export class AngularPlugin<Schemes extends BaseSchemes, T = Requires<Schemes>> e
     return
   }
 
+  /**
+   * Adds a preset to the plugin.
+   * @param preset Preset that can render nodes, connections and other elements.
+   */
   public addPreset<K>(preset: RenderPreset<Schemes, CanAssignSignal<T, K> extends true ? K : 'Cannot apply preset. Provided signals are not compatible'>) {
     const local = preset as unknown as RenderPreset<Schemes, T>
 
