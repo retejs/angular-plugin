@@ -23,6 +23,9 @@ type ClassicProps<Schemes extends ClassicScheme, K> = {
   customize?: CustomizationProps<Schemes>
 }
 
+/**
+ * Classic preset for rendering nodes, connections, controls and sockets.
+ */
 export function setup<Schemes extends ClassicScheme, K extends AngularArea2D<Schemes>>(
   props?: ClassicProps<Schemes, K>
 ): RenderPreset<Schemes, K> {
