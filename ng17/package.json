@@ -1,0 +1,26 @@
+{
+  "name": "rete-angular-plugin-ng17",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "prebuild": "mkdir -p .src && cp -r ./src/* .src && cp -r ./patch/* .src",
+    "build": "ng-packagr -p ng-nested.js -c tsconfig.json",
+    "postbuild": "rm ../dist/17/.npmignore"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^17.0.0",
+    "@angular/cli": "^17.0.0",
+    "@angular/common": "^17.0.0",
+    "@angular/compiler": "^17.0.0",
+    "@angular/compiler-cli": "^17.0.0",
+    "@angular/core": "^17.0.0",
+    "@angular/elements": "^17.0.0",
+    "@types/estree": "^1.0.0",
+    "@types/node": "^16.18.25",
+    "ng-packagr": "^17.0.0",
+    "rxjs": "^7.8.0",
+    "tslib": "^2.3.0",
+    "typescript": "~5.2.2",
+    "zone.js": "~0.14.0"
+  }
+}
