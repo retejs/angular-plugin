@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/retejs/angular-plugin/compare/v2.1.0...v2.1.1) (2024-01-27)
+
+
+### Bug Fixes
+
+* **build:** source maps ([d9d21ec](https://github.com/retejs/angular-plugin/commit/d9d21ec6b6b53f1a4b25fc8f71a87511fb4cefc3))
+
 # [2.1.0](https://github.com/retejs/angular-plugin/compare/v2.0.2...v2.1.0) (2023-12-15)
 
 
