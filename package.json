@@ -54,7 +54,7 @@
     "ng-packagr": "^12.1.1",
     "rete": "^2.0.1",
     "rete-area-plugin": "^2.0.0",
-    "rete-cli": "^1.0.1",
+    "rete-cli": "^1.0.2",
     "rete-render-utils": "^2.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
