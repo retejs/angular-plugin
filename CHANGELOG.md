@@ -1,3 +1,10 @@
+## [2.1.2](https://github.com/retejs/angular-plugin/compare/v2.1.1...v2.1.2) (2024-08-23)
+
+
+### Bug Fixes
+
+* node sizing ([ce0d8f2](https://github.com/retejs/angular-plugin/commit/ce0d8f27a9c88662d501b3f9e1916dd2ae54da5e))
+
 ## [2.1.1](https://github.com/retejs/angular-plugin/compare/v2.1.0...v2.1.1) (2024-01-27)
 
 
