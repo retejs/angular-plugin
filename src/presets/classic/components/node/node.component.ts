@@ -2,6 +2,7 @@ import { Component, Input, HostBinding, ChangeDetectorRef, OnChanges } from '@an
 import { ClassicPreset as Classic } from 'rete';
 import { KeyValue } from '@angular/common';
 
+type NodeExtraData = { width?: number, height?: number }
 type SortValue<N extends Classic.Node> = (N['controls'] | N['inputs'] | N['outputs'])[string]
 
 @Component({
@@ -12,11 +13,19 @@ type SortValue<N extends Classic.Node> = (N['controls'] | N['inputs'] | N['outpu
   }
 })
 export class NodeComponent implements OnChanges {
-  @Input() data!: Classic.Node;
+  @Input() data!: Classic.Node & NodeExtraData;
   @Input() emit!: (data: any) => void
   @Input() rendered!: () => void
 
   seed = 0
+
+  @HostBinding('style.width.px') get width() {
+    return this.data.width
+  }
+
+  @HostBinding('style.height.px') get height() {
+    return this.data.height
+  }
 
   @HostBinding('class.selected') get selected() {
     return this.data.selected
