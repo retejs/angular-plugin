@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/retejs/angular-plugin/compare/v2.2.0...v2.2.1) (2024-09-14)
+
+
+### Bug Fixes
+
+* fix peer dependencies constraints ([5870f77](https://github.com/retejs/angular-plugin/commit/5870f773b4029d211f99af1490af12196e3b0ccb))
+
 # [2.2.0](https://github.com/retejs/angular-plugin/compare/v2.1.2...v2.2.0) (2024-09-14)
 
 
