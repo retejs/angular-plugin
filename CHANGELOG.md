@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/retejs/angular-plugin/compare/v2.1.2...v2.2.0) (2024-09-14)
+
+
+### Features
+
+* add support for angular 18 ([3189913](https://github.com/retejs/angular-plugin/commit/31899136770001f8ebde4fe51d7ac2437dfb630d))
+
 ## [2.1.2](https://github.com/retejs/angular-plugin/compare/v2.1.1...v2.1.2) (2024-08-23)
 
 
