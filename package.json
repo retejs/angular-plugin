@@ -32,9 +32,9 @@
     "url": "https://github.com/retejs/angular-plugin/issues"
   },
   "peerDependencies": {
-    "@angular/common": ">= 12 < 18",
-    "@angular/core": ">= 12 < 18",
-    "@angular/elements": ">= 12 < 18",
+    "@angular/common": ">= 12 < 19",
+    "@angular/core": ">= 12 < 19",
+    "@angular/elements": ">= 12 < 19",
     "rete": "^2.0.1",
     "rete-area-plugin": "^2.0.0",
     "rete-render-utils": "^2.0.0",
