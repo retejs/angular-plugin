@@ -1,8 +1,10 @@
 import { Component, Input, ChangeDetectorRef, OnChanges, OnDestroy, HostListener, HostBinding } from '@angular/core';
 import { Item } from '../../types';
 import { debounce } from '../../debounce';
+// [imports]
 
 @Component({
+  // [component-directive]
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.sass', '../../block.sass'],
   host: {

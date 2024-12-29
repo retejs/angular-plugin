@@ -1,7 +1,9 @@
 import { Component, Input, ChangeDetectorRef, OnChanges } from '@angular/core';
 import { Pin, PinData, Position } from '../../types';
+// [imports]
 
 @Component({
+  // [component-directive]
   templateUrl: './pins.component.html'
 })
 export class PinsComponent implements OnChanges {

@@ -1,7 +1,9 @@
 import { Component, Input, ChangeDetectorRef, OnChanges, HostListener, ElementRef, HostBinding } from '@angular/core';
 import { MinimapData } from '../../types';
+// [imports]
 
 @Component({
+  // [component-directive]
   templateUrl: './minimap.component.html',
   styleUrls: ['./minimap.component.sass'],
   host: {
