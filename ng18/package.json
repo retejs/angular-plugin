@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "prebuild": "mkdir -p .src && cp -r ./src/* .src && cp -r ./patch/* .src",
+    "prebuild": "node ../scripts/patch.js",
     "build": "ng-packagr -p ng-nested.js -c tsconfig.json",
     "postbuild": "rm ../dist/18/.npmignore"
   },
