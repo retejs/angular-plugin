@@ -1,3 +1,15 @@
+# [2.3.0](https://github.com/retejs/angular-plugin/compare/v2.2.1...v2.3.0) (2024-12-30)
+
+
+### Bug Fixes
+
+* update in angular 19 ([e77caef](https://github.com/retejs/angular-plugin/commit/e77caef983586bf1fe808337421a43f2ff9a72b3))
+
+
+### Features
+
+* support angular 19 ([3b517a7](https://github.com/retejs/angular-plugin/commit/3b517a7a729334d2cfd264018cc9739619f50911))
+
 ## [2.2.1](https://github.com/retejs/angular-plugin/compare/v2.2.0...v2.2.1) (2024-09-14)
 
 
