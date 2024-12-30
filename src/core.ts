@@ -4,6 +4,7 @@ import { createCustomElement } from '@angular/elements';
 
 import { NgElement, NodeProps, Position, RenderSignal } from './types'
 import { RenderPreset } from './presets/types';
+import { reflect } from './reflect';
 
 type Item = { key: string, ngElement: NgElement }
 
@@ -39,9 +40,8 @@ function getRenderer(): Renderer {
     },
     update({ ngElement }, props) {
       Object.keys(props).forEach(key => {
-        ngElement.ngElementStrategy.setInputValue(key, props[key])
+        ngElement.ngElementStrategy.setInputValue(key, reflect(props[key]))
       })
-      ngElement.ngElementStrategy.setInputValue('seed', Math.random())
     },
     unmount(element) {
       const existing = elements.get(element)
