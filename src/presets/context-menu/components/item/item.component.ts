@@ -1,8 +1,10 @@
 import { ChangeDetectorRef, Component, EventEmitter, HostBinding, HostListener, Input, Output } from '@angular/core';
 import { Item } from '../../types';
 import { debounce } from '../../debounce';
+// [imports]
 
 @Component({
+  // [component-directive]
   selector: 'context-menu-item',
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.sass', '../../block.sass'],
