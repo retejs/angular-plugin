@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/retejs/angular-plugin/compare/v2.3.0...v2.3.1) (2025-01-04)
+
+
+### Bug Fixes
+
+* context menu subitems for v19 ([1e0abed](https://github.com/retejs/angular-plugin/commit/1e0abedbd0e7d30e9e16ca133f6195b824708021))
+
 # [2.3.0](https://github.com/retejs/angular-plugin/compare/v2.2.1...v2.3.0) (2024-12-30)
 
 
