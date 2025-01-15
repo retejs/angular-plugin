@@ -23,13 +23,14 @@ function getRenderer(): Renderer {
     },
     mount(element, key, component, injector, props) {
       // LIMITATION: If an element is remounted with the same identifier, the component cannot be replaced
-      const exists = customElements.get(key)
-
-      if (!exists) {
-        customElements.define(key, createCustomElement(component, { injector }))
+      let CustomElement = customElements.get(key)
+      
+      if (!CustomElement) {
+        CustomElement = createCustomElement(component, { injector })
+        customElements.define(key, CustomElement)
       }
 
-      const ngElement = document.createElement(key) as NodeProps & NgElement & typeof props
+      const ngElement = new CustomElement(injector) as NodeProps & NgElement & typeof props
 
       Object.keys(props).forEach(key => {
         ngElement[key] = props[key]
