@@ -1,3 +1,10 @@
+## [2.3.2](https://github.com/retejs/angular-plugin/compare/v2.3.1...v2.3.2) (2025-02-09)
+
+
+### Bug Fixes
+
+* update injector for re-mounted components ([f8e5b62](https://github.com/retejs/angular-plugin/commit/f8e5b626b9116d45785c176ffd2f9506a1107155))
+
 ## [2.3.1](https://github.com/retejs/angular-plugin/compare/v2.3.0...v2.3.1) (2025-01-04)
 
 
