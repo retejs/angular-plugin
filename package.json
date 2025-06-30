@@ -3,7 +3,7 @@
   "version": "2.3.2",
   "scripts": {
     "ng": "ng",
-    "build": "npm run build:legacy && npm run build:12 && npm run build:13 && npm run build:14 && npm run build:15 && npm run build:16 && npm run build:17 && npm run build:18 && npm run build:19",
+    "build": "npm run build:legacy && npm run build:12 && npm run build:13 && npm run build:14 && npm run build:15 && npm run build:16 && npm run build:17 && npm run build:18 && npm run build:19 && npm run build:20",
     "build:legacy": "ng-packagr -p ng-package.js",
     "build:12": "npm --prefix ng12 run build",
     "build:13": "npm --prefix ng13 run build",
@@ -13,7 +13,8 @@
     "build:17": "npm --prefix ng17 run build",
     "build:18": "npm --prefix ng18 run build",
     "build:19": "npm --prefix ng19 run build",
-    "postinstall": "npm i --prefix ng12 && npm i --prefix ng13 && npm i --prefix ng14 && npm i --prefix ng15 && npm i --prefix ng16 && npm i --prefix ng17 && npm i --prefix ng18 && npm i --prefix ng19",
+    "build:20": "npm --prefix ng20 run build",
+    "postinstall": "npm i --prefix ng12 && npm i --prefix ng13 && npm i --prefix ng14 && npm i --prefix ng15 && npm i --prefix ng16 && npm i --prefix ng17 && npm i --prefix ng18 && npm i --prefix ng19 && npm i --prefix ng20",
     "doc": "rete doc"
   },
   "author": "Vitaliy Stoliarov",
@@ -33,9 +34,9 @@
     "url": "https://github.com/retejs/angular-plugin/issues"
   },
   "peerDependencies": {
-    "@angular/common": ">= 12 < 20",
-    "@angular/core": ">= 12 < 20",
-    "@angular/elements": ">= 12 < 20",
+    "@angular/common": ">= 12 < 21",
+    "@angular/core": ">= 12 < 21",
+    "@angular/elements": ">= 12 < 21",
     "rete": "^2.0.1",
     "rete-area-plugin": "^2.0.0",
     "rete-render-utils": "^2.0.0",
