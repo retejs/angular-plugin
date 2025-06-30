@@ -1,6 +1,6 @@
 {
   "name": "rete-angular-plugin",
-  "version": "2.3.2",
+  "version": "2.4.0",
   "scripts": {
     "ng": "ng",
     "build": "npm run build:legacy && npm run build:12 && npm run build:13 && npm run build:14 && npm run build:15 && npm run build:16 && npm run build:17 && npm run build:18 && npm run build:19 && npm run build:20",
