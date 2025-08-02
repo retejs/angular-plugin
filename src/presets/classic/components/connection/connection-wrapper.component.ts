@@ -73,5 +73,6 @@ export class ConnectionWrapperComponent implements OnInit, OnChanges{
     this.ref.instance.start = this._start
     this.ref.instance.end = this._end
     this.ref.instance.path = this._path
+    this.ref.changeDetectorRef.markForCheck();
   }
 }
