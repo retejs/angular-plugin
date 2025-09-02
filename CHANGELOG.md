@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/retejs/angular-plugin/compare/v2.4.0...v2.4.1) (2025-09-02)
+
+
+### Bug Fixes
+
+* change dection for connection component ([ff1a538](https://github.com/retejs/angular-plugin/commit/ff1a5380f082efefe66102cbc46155f1ef08316d))
+
 # [2.4.0](https://github.com/retejs/angular-plugin/compare/v2.3.2...v2.4.0) (2025-06-30)
 
 
