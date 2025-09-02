@@ -7,6 +7,7 @@ import { SocketComponent } from './presets/classic/components/socket/socket.comp
 import { ConnectionWrapperComponent } from './presets/classic/components/connection/connection-wrapper.component';
 import { ControlComponent } from './presets/classic/components/control/control.component';
 import { RefDirective } from './ref';
+import { ImpureKeyvaluePipe } from './shared/pipes/impure-keyvalue.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { RefDirective } from './ref';
     ConnectionComponent,
     ConnectionWrapperComponent,
     SocketComponent,
-    ControlComponent
+    ControlComponent,
+    ImpureKeyvaluePipe
   ],
   imports: [
     CommonModule
@@ -26,7 +28,8 @@ import { RefDirective } from './ref';
     ConnectionComponent,
     ConnectionWrapperComponent,
     SocketComponent,
-    ControlComponent
+    ControlComponent,
+    ImpureKeyvaluePipe
   ],
   entryComponents: [
     NodeComponent,

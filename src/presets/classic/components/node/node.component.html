@@ -1,5 +1,5 @@
 <div class="title" data-testid="title">{{data.label}}</div>
-<div class="output" *ngFor="let output of data.outputs | keyvalue: sortByIndex" [attr.data-testid]="'output-'+output.key">
+<div class="output" *ngFor="let output of data.outputs | keyvalueimpure: sortByIndex" [attr.data-testid]="'output-'+output.key">
     <div class="output-title" data-testid="output-title">{{output.value?.label}}</div>
     <div
         class="output-socket"
@@ -11,13 +11,13 @@
 </div>
 <div
     class="control"
-    *ngFor="let control of data.controls | keyvalue: sortByIndex"
+    *ngFor="let control of data.controls | keyvalueimpure: sortByIndex"
     refComponent
     [data]="{type: 'control', payload: control.value }"
     [emit]="emit"
     [attr.data-testid]="'control-'+control.key"
 ></div>
-<div class="input" *ngFor="let input of data.inputs | keyvalue: sortByIndex" [attr.data-testid]="'input-'+input.key">
+<div class="input" *ngFor="let input of data.inputs | keyvalueimpure: sortByIndex" [attr.data-testid]="'input-'+input.key">
     <div
         class="input-socket"
         refComponent
