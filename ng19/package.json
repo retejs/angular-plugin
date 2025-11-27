@@ -10,7 +10,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.0.6",
     "@angular/cli": "^19.0.6",
-    "@angular/common": "^19.0.5",
+    "@angular/common": "^19.2.16",
     "@angular/compiler": "^19.0.5",
     "@angular/compiler-cli": "^19.0.5",
     "@angular/core": "^19.0.5",
