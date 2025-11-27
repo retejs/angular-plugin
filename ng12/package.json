@@ -6,7 +6,7 @@
     "build": "ng-packagr -p ng-nested.js -c tsconfig.json"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~12.2.18",
+    "@angular-devkit/build-angular": "~21.0.1",
     "@angular/cli": "~12.2.0",
     "@angular/common": "~12.2.0",
     "@angular/compiler": "^12.2.17",
