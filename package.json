@@ -3,7 +3,7 @@
   "version": "2.5.0",
   "scripts": {
     "ng": "ng",
-    "build": "npm run build:legacy && npm run build:12 && npm run build:13 && npm run build:14 && npm run build:15 && npm run build:16 && npm run build:17 && npm run build:18 && npm run build:19 && npm run build:20",
+    "build": "npm run build:legacy && npm run build:12 && npm run build:13 && npm run build:14 && npm run build:15 && npm run build:16 && npm run build:17 && npm run build:18 && npm run build:19 && npm run build:20 && npm run build:21",
     "build:legacy": "ng-packagr -p ng-package.js",
     "build:12": "npm --prefix ng12 run build",
     "build:13": "npm --prefix ng13 run build",
@@ -14,7 +14,8 @@
     "build:18": "npm --prefix ng18 run build",
     "build:19": "npm --prefix ng19 run build",
     "build:20": "npm --prefix ng20 run build",
-    "postinstall": "npm i --prefix ng12 && npm i --prefix ng13 && npm i --prefix ng14 && npm i --prefix ng15 && npm i --prefix ng16 && npm i --prefix ng17 && npm i --prefix ng18 && npm i --prefix ng19 && npm i --prefix ng20",
+    "build:21": "npm --prefix ng21 run build",
+    "postinstall": "npm i --prefix ng12 && npm i --prefix ng13 && npm i --prefix ng14 && npm i --prefix ng15 && npm i --prefix ng16 && npm i --prefix ng17 && npm i --prefix ng18 && npm i --prefix ng19 && npm i --prefix ng20 && npm i --prefix ng21",
     "doc": "rete doc"
   },
   "author": "Vitaliy Stoliarov",
@@ -34,15 +35,15 @@
     "url": "https://github.com/retejs/angular-plugin/issues"
   },
   "peerDependencies": {
-    "@angular/common": ">= 12 < 21",
-    "@angular/core": ">= 12 < 21",
-    "@angular/elements": ">= 12 < 21",
+    "@angular/common": ">= 12 < 22",
+    "@angular/core": ">= 12 < 22",
+    "@angular/elements": ">= 12 < 22",
     "rete": "^2.0.1",
     "rete-area-plugin": "^2.0.0",
     "rete-render-utils": "^2.0.0",
     "rxjs": ">=6.6.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4 || ~0.12.0 || ~0.13.0 || ~0.14.0 || ~0.15.0"
+    "zone.js": "~0.11.4 || ~0.12.0 || ~0.13.0 || ~0.14.0 || ~0.15.0 || ~0.16.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.18",
