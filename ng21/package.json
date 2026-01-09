@@ -1,0 +1,26 @@
+{
+  "name": "rete-angular-plugin-ng21",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "prebuild": "node ../scripts/patch.js",
+    "build": "ng-packagr -p ng-nested.js -c tsconfig.json",
+    "postbuild": "rm ../dist/21/.npmignore"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^21.0.0",
+    "@angular/cli": "^21.0.0",
+    "@angular/common": "^21.0.0",
+    "@angular/compiler": "^21.0.0",
+    "@angular/compiler-cli": "^21.0.0",
+    "@angular/core": "^21.0.0",
+    "@angular/elements": "^21.0.0",
+    "@types/estree": "^1.0.5",
+    "@types/node": "^22.5.5",
+    "ng-packagr": "^21.0.0",
+    "rxjs": "^7.8.1",
+    "tslib": "^2.7.0",
+    "typescript": "~5.9.0",
+    "zone.js": "^0.16.0"
+  }
+}
