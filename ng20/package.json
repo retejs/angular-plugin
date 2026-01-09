@@ -11,7 +11,7 @@
     "@angular-devkit/build-angular": "^20.0.2",
     "@angular/cli": "^20.0.2",
     "@angular/common": "^20.0.3",
-    "@angular/compiler": "^20.0.3",
+    "@angular/compiler": "^20.3.16",
     "@angular/compiler-cli": "^20.0.3",
     "@angular/core": "^20.0.3",
     "@angular/elements": "^20.0.3",
