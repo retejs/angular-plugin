@@ -1,0 +1,26 @@
+{
+  "name": "rete-angular-plugin-ng22",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "prebuild": "node ../scripts/patch.js",
+    "build": "ng-packagr -p ng-nested.js -c tsconfig.json",
+    "postbuild": "rm -f ../dist/22/.npmignore"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^22.0.0",
+    "@angular/cli": "^22.0.0",
+    "@angular/common": "^22.0.0",
+    "@angular/compiler": "^22.0.0",
+    "@angular/compiler-cli": "^22.0.0",
+    "@angular/core": "^22.0.0",
+    "@angular/elements": "^22.0.0",
+    "@types/estree": "^1.0.5",
+    "@types/node": "^22.5.5",
+    "ng-packagr": "^22.0.0",
+    "rxjs": "^7.8.1",
+    "tslib": "^2.7.0",
+    "typescript": "~6.0.0",
+    "zone.js": "^0.16.0"
+  }
+}
