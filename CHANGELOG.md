@@ -1,3 +1,10 @@
+# [2.7.0](https://github.com/retejs/angular-plugin/compare/v2.6.0...v2.7.0) (2026-07-09)
+
+
+### Features
+
+* add support for angular 22 ([019fd93](https://github.com/retejs/angular-plugin/commit/019fd9324ea893a38dc04942ea88c9076c213c61))
+
 # [2.6.0](https://github.com/retejs/angular-plugin/compare/v2.5.0...v2.6.0) (2026-01-09)
 
 
