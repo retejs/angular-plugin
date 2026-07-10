@@ -1,3 +1,10 @@
+## [2.7.1](https://github.com/retejs/angular-plugin/compare/v2.7.0...v2.7.1) (2026-07-10)
+
+
+### Bug Fixes
+
+* set input control text color for dark color-scheme ([c604f4f](https://github.com/retejs/angular-plugin/commit/c604f4f90c1cd7fbf79b84c0ac7a9d7e6ebb9578))
+
 # [2.7.0](https://github.com/retejs/angular-plugin/compare/v2.6.0...v2.7.0) (2026-07-09)
 
 
